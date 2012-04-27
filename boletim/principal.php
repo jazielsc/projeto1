@@ -6,11 +6,11 @@ require_once("verifica.php");
 
 if($_SESSION["permissao"] > 4)
 { 
-    echo "Vocï¿½ nï¿½o tem permissï¿½o para entrar nessa ï¿½rea!"; 
+    echo "Você não tem permissão para entrar nessa Área!"; 
     exit; 
 } 
 
-
+require_once("scripts/logado.php");
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,55 +30,53 @@ body {
 	margin-bottom: 0px;
 	border:0px;
 }
-#Layer1 {
-	position:absolute;
-	left:50%;
-	top:0px;
-	margin-left: -383px;
-	z-sigav:1;
-	border:0px;
-	
-}
 -->
 </style>
+<script type="text/javascript" src="app/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="app/js/jquery.form.js"></script>
+<script type="text/javascript" src="app/js/global.js"></script>
 
-<script language="javascript">AC_FL_RunContent = 0;</script>
-<script src="AC_RunActiveContent.js" language="javascript"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="#cde6ed">
 <!--url's used in the movie-->
-<div id="Layer1">
-  <script language="javascript"> 
-	
-if (AC_FL_RunContent == 0) {
-		alert("This page requires AC_RunActiveContent.js. In Flash, run \"Apply Active Content Update\" in the Commands menu to copy AC_RunActiveContent.js to the HTML output folder.");
-	} else {
-		AC_FL_RunContent(
-			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0',
-			'width', '766',
-			'height', '870',
-			'src', 'sigav',
-			'quality', 'high',
-			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
-			'align', 'middle',
-			'play', 'true',
-			'loop', 'true',
-			'scale', 'showall',
-			'wmode', 'window',
-			'devicefont', 'false',
-			'id', 'sigav',
-			'bgcolor', '#FFFFFF',
-			'name', 'sigav',
-			'menu', 'true',
-			'allowScriptAccess','sameDomain',
-			'movie', 'sigav',
-			'salign', ''
-			); //end AC code
-	}
-</script>
-
+<div class="envolve" align="center">
+	<div id="corpo" align="left">
+		<div id="topo" >
+			<table id="topo_tabela">
+				<tr height="49" valign="bottom">
+					<td> </td>
+					<td width="92" height="49">&nbsp;</td>
+					<td width="261"><?php echo $area_login ?></td>
+				</tr>	
+				<tr>
+					<td> </td>
+					<td colspan="2">
+					<?php echo $instituicao  ?>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="topo_inferior">
+			<table width="764">
+				<tr valign="middle">
+					<td width="35">&nbsp;</td>
+					<td width="112"><a href="principal.php">Inicio</a></td>
+					<td width="90"><a href="logoff.php">Sair</a></td>
+					<td width="311"><strong>Usuarios: </strong><?php echo $nome?></td>
+					<td width="192"><?php echo date("d\ \d\e\ F\ \d\e\ Y - h:i:s") ?></td>
+				</tr>	
+		  </table>
+		</div>
+		<div id="menu">
+		<!-- AKI ENTRARA O MENU CSS -->
+		</div>
+		<div id="conteudo">
+		<!--AKI ENTRA OS SCRIPTS FLASH -->
+		
+		</div>
+	</div>
 </div>
-
 
 </body>
 </html>

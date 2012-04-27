@@ -1,7 +1,7 @@
 <?php 
 session_start();
 ob_start();
-
+error_reporting(0);
 header("Content-Type: text/html; charset=utf-8",true);
 
 if(!defined("kshjdhjshd1263a118")) 
@@ -48,8 +48,8 @@ $query = mysql_query("SELECT cod_usuario, usuario.nome,  usuario_login, usuario_
 	
 		if ($result[3]==$senha) {
 			
-		echo "&resultado=ok&nadeagasadelclarar=ok";	
-		
+		//echo "&resultado=ok&nadeagasadelclarar=ok";	
+		echo "ok";
 			
 		
 		// regenerando a sessao por motivo de seguran�a
@@ -90,13 +90,15 @@ $query = mysql_query("SELECT cod_usuario, usuario.nome,  usuario_login, usuario_
 		}else{
 			//$mensagem = "usuário ou senha inválida!";
 			
-			echo "&resultado=nao";
+			//echo "&resultado=nao";
+			echo "nao";
 			//require("index.htm");
                     
                        }
 	}else {
 		//$mensagem = "usuário ou senha inválida!";
-		echo "&resultado=nao";
+		echo "nao";
+		//echo "&resultado=nao";
             
                 }
 

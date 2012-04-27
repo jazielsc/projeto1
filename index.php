@@ -100,6 +100,7 @@ include('app\config.php');
 
             $("form#FormLogin").keydown(function(event){
 
+<<<<<<< HEAD
 			var key = event.keyCode;
 
 			if(key==13){
@@ -112,6 +113,11 @@ include('app\config.php');
 
         });
 
+=======
+<!-- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+>
+>>>>>>> origin/master
 
 
 </script>

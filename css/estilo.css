@@ -1,0 +1,293 @@
+body{
+	background-color: #E5E5E5;
+	margin-top: 0px;
+	font-family: arial, serif;
+}
+
+.corpo {
+	position: absolute;
+	width: 766px;
+	height: 875px;
+	left: 50%;
+	margin-left: -383px;
+	/**/
+	background-color: #FFFFFF;
+	box-shadow: 3px 5px 20px #330000;
+	-moz-box-shadow: 3px 5px 20px #330000; /* Firefox */
+	-webkit-box-shadow: 3px 5px 20px #330000; /* Safari e Chrome */
+
+}
+
+.cabecalho {
+	position: absolute;
+	width: 766px;
+	height: 195px;
+}
+
+.conteudo {
+	position: absolute;
+	width: 766px;
+	height: 700px;
+}
+
+.campo {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+.conteudo table{
+	width: 550px;
+}
+
+.conteudo .rotulo {
+	width: 100px;
+	font-size: 13;
+}
+
+.titulo {
+	position: absolute;
+	left: 9px;
+	top: 27px;
+}
+
+.botao {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #F8F8F8;
+	height: 22px;
+	width: 100px;
+	font-weight: bolder;
+}
+
+.lista_selecao {
+	position: absolute;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	border: 5px solid #F8F8F8;
+}
+
+/* TABELAS */
+
+#box-table-a
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	width: 725px;
+	text-align: left;
+	border-collapse: collapse;
+}
+#box-table-a th
+{
+	font-size: 13px;
+	font-weight: bolder;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+}
+#box-table-a td
+{
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+	border-left: 1px dashed #F8F8F8;
+	height: 17px;
+	font-size: 11;
+}
+
+#box-table-a th a{
+	text-decoration: none;
+	color: navy;
+}
+
+#box-table-a td a{
+	text-decoration: none;
+	color: navy;
+	display: block;
+}
+
+#box-table-a tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+
+/* COMEÇO FUNCIONAL */
+
+#tela_login {
+	position: absolute;
+	top: 30px;
+	left: 385px;
+	width: 340px;
+	height: 100px;
+	font-size: 12;
+}
+
+#campos_login {
+	position: absolute;
+	top: 0px;
+	left: 120px;
+	width: 240px;
+	height: 100px;
+}
+
+#campos_login table{
+	font-size: 13;
+	font-weight: bolder;
+	border-collapse: collapse;
+}
+
+#campos_login input{
+	background-color: #79BCFF;
+	color: white;
+	font-weight: bolder;
+	height: 22px;
+}
+
+#dados_login {
+	position: absolute;
+	top: 30px;
+	left: 405px;
+}
+
+#dados_login table {
+	font-weight: bolder;
+	border-collapse: collapse;	
+	color: navy;
+	font-size: 11;
+	padding-right: 5px;
+}
+
+#desktop {
+	position: relative;
+	left: 50%;
+	width: 716px;
+	margin-left: -358px;
+}
+
+.campo_formulario {
+	position: relative;
+	float: left;
+	height: 25px;
+	margin-left: 10px;
+	margin-top: 6px;
+}
+
+.campo_formulario a{
+	color: navy;
+	font-weight: bolder;
+	font-size: 13;
+	padding-right: 15px;
+}
+
+/* MENU SUSPENSO  - ------------------------------------------------------------------------------------------------------------------ */
+
+#menu {
+	position: relative;
+	font-size: 11;
+	height: 27px;
+	width: 766px;
+	left: 50%;
+	margin-left: -383px;
+	top: 0px;
+	z-index: 1000;
+	background-color:#0093C2;
+}
+
+#menu a{
+	text-decoration:none;
+	font-variant:small-caps;
+	font-weight: bolder;
+	color: navy;
+}
+
+#menu ul{
+    padding:0px;
+    margin-top: 0px;
+    float: left;
+    width: 100%;
+    background-color:#0093C2;
+    list-style:none;
+}
+
+#menu li a{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#menu li ul{
+	display:none;
+}
+
+#menu ul li{
+	float:left;
+	position:relative;
+	width:150px;
+	height:20px;
+}
+
+#menu ul li a {
+	padding-left: 2px;
+	padding-right: 29px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	color: white;
+	font-size: 10;
+	display:block;
+	width:120px;
+	height:22px;
+	background:#0093C2;
+	text-align: center;
+}
+
+#menu ul li a:hover{
+	color: white;
+	background-color: orange;
+}
+
+
+#menu ul li:hover ul {
+    color: red;
+    border-bottom:3px solid #EA0000;
+}
+
+#menu ul li ul li a {
+	text-align: left;
+}
+
+#menu ul li:hover ul li ul {
+	display: none;
+}
+
+#menu ul li:hover ul li:hover ul {
+	display:block;
+	position:absolute;
+	left: 121px;
+	top: 0;
+	margin-top: 0;
+}
+
+#menu ul li{
+	display:block;
+	float:left;
+}
+
+#menu ul li:hover ul {
+	display:block; position:absolute; top:26px;
+}
+
+#menu ul {
+    padding:0px;
+    margin:0px;
+    float: left;
+    width: 100%;
+    background-color:#0093C2;
+    list-style:none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------*/

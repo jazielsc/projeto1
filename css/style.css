@@ -10,7 +10,7 @@ body {
 	margin-left: auto;
 }
 #corpo {
-	background-image: url(app/imagens/login_logo.png);
+	background-image: url(../img/login_logo.png);
 	background-repeat: no-repeat;
 	height:300px;
 }

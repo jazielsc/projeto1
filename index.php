@@ -1,15 +1,15 @@
 <?php 
-include('app\config.php');
+include('paginas\config.php');
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo TITLE ?></title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="app/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="app/js/jquery.form.js"></script>
-<script type="text/javascript" src="app/js/global.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
 </head>
 
 <body>
@@ -100,7 +100,6 @@ include('app\config.php');
 
             $("form#FormLogin").keydown(function(event){
 
-<<<<<<< HEAD
 			var key = event.keyCode;
 
 			if(key==13){
@@ -112,13 +111,6 @@ include('app\config.php');
 		});
 
         });
-
-=======
-<!-- -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
->
->>>>>>> origin/master
-
 
 </script>
 </body>

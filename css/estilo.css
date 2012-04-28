@@ -48,8 +48,8 @@ body{
 
 .titulo {
 	position: absolute;
-	left: 9px;
-	top: 27px;
+	left: 7px;
+	top: 14px;
 }
 
 .botao {
@@ -117,7 +117,7 @@ body{
 	color: #339;
 }
 
-/* COMEÇO FUNCIONAL */
+/* COMEO FUNCIONAL */
 
 #tela_login {
 	position: absolute;
@@ -291,3 +291,85 @@ body{
 }
 
 /* ------------------------------------------------------------------------------------------------------------*/
+
+/************************* TABELAS ORDENADAS ------********/
+
+form{
+  background-color:#f2f2f2;
+  width:600px;
+  margin:10px 0 10px 0;
+  text-align:center;
+}
+
+form p{
+  padding:12px;
+}
+
+form p label{
+  color:#333;
+  font-weight:900;
+}
+
+form input{
+  padding:6px;
+  border:1px solid #ccc;
+  width:300px;
+}
+
+table#tabela-lista{
+  width:600px;
+  border:1px solid #ccc;
+}
+
+table#tabela-lista thead th{
+  background-color:#f2f2f2;
+  padding:5px;
+  color:#000;
+  text-align:center;
+  font-size:14px;
+}
+
+table#tabela-lista thead th.header{
+  cursor:pointer;
+}
+
+table#tabela-lista tbody td{
+  font-size:12px;	
+  padding:2px;
+  text-align:center;
+  color:#333;
+}
+
+table#tabela-lista tbody tr.odd td{
+  background-color:#ffffcc;
+}
+
+table#tabela-lista tbody tr.hover td{
+  background-color:#a9d0f5;
+}
+
+table#tabela-lista tbody tr.selected td{
+  background-color:#a9f5a9!important;
+}
+
+.pagedisplay{
+    width:40px;
+    text-align:center;
+    border:none;
+    background-color:#f2f2f2;
+    font-weight:900;
+}
+
+#pager span{
+    font-weight:900;
+    display:inline-block;
+    margin:0 0 0 20px;
+    color:#666;
+    float:right;
+}
+
+#pager form{
+    text-align:left;
+    padding:10px;
+    width:580px;
+}

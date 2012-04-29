@@ -17,6 +17,7 @@ xmlhttp.onreadystatechange=function(){
     	document.getElementById(obj).innerHTML=x;
 		if (aguarda==true){
 			atualizaTabela();
+			montaNotas();
 		}
     }
 }
@@ -38,12 +39,12 @@ function carregaProfessor(idDisciplina, obj){
 
 
 function atualizaTabela(){
-	$('table > tbody > tr').hover(function(){
+	$('table > tbody > tr.linha').hover(function(){
         $(this).toggleClass('hover');
      });
 	
 	//dinstiguir pares e impares
-	$('table > tbody > tr:odd').addClass('odd');
+	$('table > tbody > tr.linha:odd').addClass('odd');
 	
 	//ordenar campos
 	$("table").tablesorter({
@@ -57,19 +58,43 @@ function atualizaTabela(){
         .tablesorterPager({container: $("#pager")})
         .bind('sortBegin', function(){
           $('table > tbody > tr').removeClass('odd');
-          $('table > tbody > tr:odd').addClass('odd');
+          $('table > tbody > tr.linha:odd').addClass('odd');
+          $('table > tbody > tr.linha:odd').addClass('odd');
+		  
         }); 
-		
-		
-		//selecionar dados
-		$("tr").click(function(){ 
+}
+
+function montaNotas(){
+	//selecionar dados do aluno e atualiza o form boletim
+		$("tr.linha").click(function(){ 
+			$('#acao').attr('value','insert_notas');
 			//tenho que pegar os codigos
-		   	alert( $(this).find('td:eq(1)').text() ); 
+		   	$('#cod_aluno').attr('value', $(this).find('td:eq(0)').text() );
+ 		   	$('#nome').attr('value', $(this).find('td:eq(1)').text() );
+		   	$('#cod_curso').attr('value', $('#carrega_curso').val() );
+		   	$('#cod_turma').attr('value', $('#carrega_turma').val() );
+		   	$('#cod_disciplina').attr('value', $('#carrega_disciplina').val() );
+		   	$('#cod_professor').attr('value', $('#carrega_professor').val() );
 		   return false; 
 		}); 
-		 
 }
+
 function carregaTabelaTurmaAluno(idDisciplina, idProfessor, obj){
 	ajaxGET('loader/carrega_tabela_turma_aluno.php?disciplina='+idDisciplina+'&professor='+idProfessor, obj,true);
 
+}
+
+
+function cadastraNotas(){
+	$.post(
+			$("form#Form_boletim").attr('action'),
+			$("form#Form_boletim").serialize(),
+			function(retorno){
+				if(retorno.indexOf('ok')!=-1){
+					$('div#retorno').html('Cadastrado com sucesso.');
+				}else{
+					$("div#retorno").html('<' + 'label class="mensagem_erro" for="nome" generated="true"' + '>' + retorno + '</' + 'label' + '>');
+					$("div#retorno").show();
+				}
+			});
 }

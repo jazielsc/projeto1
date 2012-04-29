@@ -11,7 +11,7 @@
 	$res = mysql_query("SELECT aluno.cod_aluno, aluno.nome, disciplina.nome FROM item2, disciplina, aluno WHERE item2.cod_disciplina = disciplina.cod_disciplina AND item2.cod_aluno = aluno.cod_aluno AND item2.cod_disciplina = '$cod_disciplina' AND cod_professor = '$cod_professor' AND item2.cod_status = 1 ORDER BY aluno.nome") or die ("Error na consulta");
 	
 	while($linha = mysql_fetch_array($res)){
-		echo "<tr >";
+		echo "<tr class='linha'>";
 		echo utf8_encode('<td>'.$linha[0].'</td><td>'.$linha[1].'</td><td>'.$linha[2].'</td>');
 		echo '</tr>'."\n";
 	}

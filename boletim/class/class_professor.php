@@ -1,697 +1,143 @@
 <?php
 
-/**
- * classe para manipulação dos dados referente a instituicão
- *
- * @author Administrador
- */
-class Class_professor
-{
-
-     public $cod_professor;
-     public $nome;
-     public $email;
-     public $cod_cidade;
-     public $cod_bairro;
-     public $cod_rua;
-     public $complemento;
-     public $numero;
-     public $cod_uf;
-     public $telefone;
-     public $cod_status;
-     public $resultado;
-     public $cod_instituicao;
-     public $cep;
-          
-     public function insert_professor($nome,$email,$cod_cidade,$cod_bairro,$cod_rua,$complemento,$numero,$cod_uf,$telefone,$cod_status,$cod_instituicao,$cep,$identidade)
-     {
-
-         session_start();
-
-         $instituicao = $_SESSION['instituicao'];
-
-         $pasta = $_SESSION['pasta'];
-
-         $cod_instituicao = (int) $_SESSION['id_instituicao'];
-
-
-        $emailLogin = explode(' ', $nome);
-        
+class Class_professor{
+	  
+	public function insert_professor($cod_status, $cod_instituicao, $_1_, $_2_, $_3_, $_4_, $_5_, $_6_, $_7_, $_8_, $_9_, $_10_, $_11_, $_12_, $_13_, $_14_, $_15_, $_16_, $_17_, $_18_, $_19_, $_20_, $_21_1_, $_21_2_,
+									 $_21_3_, $_21_4_, $_21_5_, $_21_6_, $_21_7_, $_21_8_, $_21_9_, $_21_10_, $_21_11_, $_21_12_, $_21_13_, $_21_14_, $_21_15_, $_21_16_, $_21_17_, $_21_18_, $_21_19_, $_21_20_,
+									 $_21_21_, $_21_22_, $_22_, $_23_1_, $_23_2_, $_23_3_, $_23_4_, $_23_5_, $_23_6_, $_23_7_, $_23_8_, $_23_9_, $_23_10_, $_23_11_, $_24_, $_25_, $_26_1_, $_26_2_, $_26_3_, $_26_4_,
+									 $_26_5_, $_26_6_, $_27_1_1_, $_27_1_2_, $_27_1_3_, $_27_1_4_, $_27_1_5_, $_27_1_6_, $_27_1_7_, $_27_2_1_, $_27_2_2_, $_27_2_3_, $_27_2_4_, $_27_2_5_, $_27_2_6_, $_27_2_7_,
+									 $_27_3_1_, $_27_3_2_, $_27_3_3_, $_27_3_4_, $_27_3_5_, $_27_3_6_, $_27_3_7_, $_27_4_1_, $_27_4_2_, $_27_4_3_, $_27_4_4_, $_27_4_5_, $_27_4_6_, $_27_4_7_, $_27_5_1_, $_27_5_2_,
+									 $_27_5_3_, $_27_5_4_, $_27_5_5_, $_27_5_6_, $_27_5_7_, $_27_6_1_, $_27_6_2_, $_27_6_3_, $_27_6_4_, $_27_6_5_, $_27_6_6_, $_27_6_7_){
+		/*BEGIN*/
+			include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
+			if($_5_ != ""){
+				$data_nova = $_5_;
+				$ano = $data_nova[6].$data_nova[7].$data_nova[8].$data_nova[9];
+				$mes = $data_nova[3].$data_nova[4];
+				$dia = $data_nova[0].$data_nova[1];
+				$_5_ = $ano."-".$mes."-".$dia;
+			}
+			else $_5_ = "0000-00-00";
+			
+			$consulta = mysql_query("INSERT INTO `professor`(`cod_status`, `cod_instituicao`, `1_`, `2_`, `3_`, `4_`, `5_`, `6_`, `7_`, `8_`, `9_`, `10_`, `11_`, `12_`, `13_`, `14_`, `15_`, `16_`, `17_`, `18_`, `19_`, `20_`, `21_1_`, `21_2_`, `21_3_`, `21_4_`, `21_5_`, `21_6_`, `21_7_`, `21_8_`, `21_9_`, `21_10_`, `21_11_`, `21_12_`, `21_13_`, `21_14_`, `21_15_`, `21_16_`, `21_17_`, `21_18_`, `21_19_`, `21_20_`, `21_21_`, `21_22_`, `22_`, `23_1_`, `23_2_`, `23_3_`, `23_4_`, `23_5_`, `23_6_`, `23_7_`, `23_8_`, `23_9_`, `23_10_`, `23_11_`, `24_`, `25_`, `26_1_`, `26_2_`, `26_3_`, `26_4_`, `26_5_`, `26_6_`, `27_1_1_`, `27_1_2_`, `27_1_3_`, `27_1_4_`, `27_1_5_`, `27_1_6_`, `27_1_7_`, `27_2_1_`, `27_2_2_`, `27_2_3_`, `27_2_4_`, `27_2_5_`, `27_2_6_`, `27_2_7_`, `27_3_1_`, `27_3_2_`, `27_3_3_`, `27_3_4_`, `27_3_5_`, `27_3_6_`, `27_3_7_`, `27_4_1_`, `27_4_2_`, `27_4_3_`, `27_4_4_`, `27_4_5_`, `27_4_6_`, `27_4_7_`, `27_5_1_`, `27_5_2_`, `27_5_3_`, `27_5_4_`, `27_5_5_`, `27_5_6_`, `27_5_7_`, `27_6_1_`, `27_6_2_`, `27_6_3_`, `27_6_4_`, `27_6_5_`, `27_6_6_`, `27_6_7_`)
+									VALUES ($cod_status, $cod_instituicao, '$_1_', '$_2_', '$_3_', '$_4_', '$_5_', '$_6_', '$_7_', '$_8_', '$_9_', '$_10_', '$_11_', '$_12_', '$_13_', '$_14_', '$_15_', '$_16_', '$_17_', '$_18_', '$_19_', '$_20_', '$_21_1_', '$_21_2_',
+									 '$_21_3_', '$_21_4_', '$_21_5_', '$_21_6_', '$_21_7_', '$_21_8_', '$_21_9_', '$_21_10_', '$_21_11_', '$_21_12_', '$_21_13_', '$_21_14_', '$_21_15_', '$_21_16_', '$_21_17_', '$_21_18_', '$_21_19_', '$_21_20_',
+									 '$_21_21_', '$_21_22_', '$_22_', '$_23_1_', '$_23_2_', '$_23_3_', '$_23_4_', '$_23_5_', '$_23_6_', '$_23_7_', '$_23_8_', '$_23_9_', '$_23_10_', '$_23_11_', '$_24_', '$_25_', '$_26_1_', '$_26_2_', '$_26_3_', '$_26_4_',
+									 '$_26_5_', '$_26_6_', '$_27_1_1_', '$_27_1_2_', '$_27_1_3_', '$_27_1_4_', '$_27_1_5_', '$_27_1_6_', '$_27_1_7_', '$_27_2_1_', '$_27_2_2_', '$_27_2_3_', '$_27_2_4_', '$_27_2_5_', '$_27_2_6_', '$_27_2_7_',
+									 '$_27_3_1_', '$_27_3_2_', '$_27_3_3_', '$_27_3_4_', '$_27_3_5_', '$_27_3_6_', '$_27_3_7_', '$_27_4_1_', '$_27_4_2_', '$_27_4_3_', '$_27_4_4_', '$_27_4_5_', '$_27_4_6_', '$_27_4_7_', '$_27_5_1_', '$_27_5_2_',
+									 '$_27_5_3_', '$_27_5_4_', '$_27_5_5_', '$_27_5_6_', '$_27_5_7_', '$_27_6_1_', '$_27_6_2_', '$_27_6_3_', '$_27_6_4_', '$_27_6_5_', '$_27_6_6_', '$_27_6_7_')") or die ("Erro select ". mysql_errno());
+			return 0;
+		/*END*/
+	}
+	
+	public function update_professor($cod_professor, $cod_status, $cod_instituicao, $_1_, $_2_, $_3_, $_4_, $_5_, $_6_, $_7_, $_8_, $_9_, $_10_, $_11_, $_12_, $_13_, $_14_, $_15_, $_16_, $_17_, $_18_, $_19_, $_20_, $_21_1_, $_21_2_,
+									 $_21_3_, $_21_4_, $_21_5_, $_21_6_, $_21_7_, $_21_8_, $_21_9_, $_21_10_, $_21_11_, $_21_12_, $_21_13_, $_21_14_, $_21_15_, $_21_16_, $_21_17_, $_21_18_, $_21_19_, $_21_20_,
+									 $_21_21_, $_21_22_, $_22_, $_23_1_, $_23_2_, $_23_3_, $_23_4_, $_23_5_, $_23_6_, $_23_7_, $_23_8_, $_23_9_, $_23_10_, $_23_11_, $_24_, $_25_, $_26_1_, $_26_2_, $_26_3_, $_26_4_,
+									 $_26_5_, $_26_6_, $_27_1_1_, $_27_1_2_, $_27_1_3_, $_27_1_4_, $_27_1_5_, $_27_1_6_, $_27_1_7_, $_27_2_1_, $_27_2_2_, $_27_2_3_, $_27_2_4_, $_27_2_5_, $_27_2_6_, $_27_2_7_,
+									 $_27_3_1_, $_27_3_2_, $_27_3_3_, $_27_3_4_, $_27_3_5_, $_27_3_6_, $_27_3_7_, $_27_4_1_, $_27_4_2_, $_27_4_3_, $_27_4_4_, $_27_4_5_, $_27_4_6_, $_27_4_7_, $_27_5_1_, $_27_5_2_,
+									 $_27_5_3_, $_27_5_4_, $_27_5_5_, $_27_5_6_, $_27_5_7_, $_27_6_1_, $_27_6_2_, $_27_6_3_, $_27_6_4_, $_27_6_5_, $_27_6_6_, $_27_6_7_){
+		/*BEGIN*/
+			include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
+			if($_5_ != ""){
+				$data_nova = $_5_;
+				$ano = $data_nova[6].$data_nova[7].$data_nova[8].$data_nova[9];
+				$mes = $data_nova[3].$data_nova[4];
+				$dia = $data_nova[0].$data_nova[1];
+				$_5_ = $ano."-".$mes."-".$dia;
+			}
+			else $_5_ = "0000-00-00";
+			
+			$consulta = mysql_query("UPDATE `professor` SET `cod_status`= $cod_status,`cod_instituicao`= $cod_instituicao,`1_`='$_1_',`2_`='$_2_',`3_`='$_3_',`4_`='$_4_',`5_`='$_5_',
+			`6_`='$_6_',`7_`='$_7_',`8_`='$_8_',`9_`='$_9_',`10_`='$_10_',`11_`='$_11_',`12_`='$_12_',`13_`='$_13_',`14_`='$_14_',`15_`='$_15_',`16_`='$_16_',`17_`='$_17_',
+			`18_`='$_18_',`19_`='$_19_',`20_`='$_20_',`21_1_`='$_21_1_',`21_2_`='$_21_2_',`21_3_`='$_21_3_',`21_4_`='$_21_4_',`21_5_`='$_21_5_',`21_6_`='$_21_6_',`21_7_`='$_21_7_',`21_8_`='$_21_8_',
+			`21_9_`='$_21_9_',`21_10_`='$_21_10_',`21_11_`='$_21_11_',`21_12_`='$_21_12_',`21_13_`='$_21_13_',`21_14_`='$_21_14_',`21_15_`='$_21_15_',`21_16_`='$_21_16_',`21_17_`='$_21_17_',`21_18_`='$_21_18_',
+			`21_19_`='$_21_19_',`21_20_`='$_21_20_',`21_21_`='$_21_21_',`21_22_`='$_21_22_',`22_`='$_22_',`23_1_`='$_23_1_',`23_2_`='$_23_2_',`23_3_`='$_23_3_',`23_4_`='$_23_4_',`23_5_`='$_23_5_',
+			`23_6_`='$_23_6_',`23_7_`='$_23_7_',`23_8_`='$_23_8_',`23_9_`='$_23_9_',`23_10_`='$_23_10_',`23_11_`='$_23_11_',`24_`='$_24_',`25_`='$_25_',`26_1_`='$_26_1_',`26_2_`='$_26_2_',
+			`26_3_`='$_26_3_',`26_4_`='$_26_4_',`26_5_`='$_26_5_',`26_6_`='$_26_6_',`27_1_1_`='$_27_1_1_',`27_1_2_`='$_27_1_2_',`27_1_3_`='$_27_1_3_',`27_1_4_`='$_27_1_4_',`27_1_5_`='$_27_1_5_',`27_1_6_`='$_27_1_6_',
+			`27_1_7_`='$_27_1_7_',`27_2_1_`='$_27_2_1_',`27_2_2_`='$_27_2_2_',`27_2_3_`='$_27_2_3_',`27_2_4_`='$_27_2_4_',`27_2_5_`='$_27_2_5_',`27_2_6_`='$_27_2_6_',`27_2_7_`='$_27_2_7_',`27_3_1_`='$_27_3_1_',
+			`27_3_2_`='$_27_3_2_',`27_3_3_`='$_27_3_3_',`27_3_4_`='$_27_3_4_',`27_3_5_`='$_27_3_5_',`27_3_6_`='$_27_3_6_',`27_3_7_`='$_27_3_7_',`27_4_1_`='$_27_4_1_',`27_4_2_`='$_27_4_2_',`27_4_3_`='$_27_4_3_',
+			`27_4_4_`='$_27_4_4_',`27_4_5_`='$_27_4_5_',`27_4_6_`='$_27_4_6_',`27_4_7_`='$_27_4_7_',`27_5_1_`='$_27_5_1_',`27_5_2_`='$_27_5_2_',`27_5_3_`='$_27_5_3_',`27_5_4_`='$_27_5_4_',`27_5_5_`='$_27_5_5_',
+			`27_5_6_`='$_27_5_6_',`27_5_7_`='$_27_5_7_',`27_6_1_`='$_27_6_1_',`27_6_2_`='$_27_6_2_',`27_6_3_`='$_27_6_3_',`27_6_4_`='$_27_6_4_',`27_6_5_`='$_27_6_5_',`27_6_6_`='$_27_6_6_',`27_6_7_`='$_27_6_7_'
+			WHERE cod_professor = $cod_professor") or die ("Erro select ". mysql_errno());
+		/*END*/
+	}
+	
+	/*
+	public function insert_professor($nome, $email, $cidade, $bairro, $rua, $complemento, $numero, $cod_uf, $telefone, $cod_status, $cod_instituicao, $cep, $identidade){
+        $instituicao = $_SESSION['instituicao'];
+        $pasta = $_SESSION['pasta'];
+        $cod_instituicao = (int) $_SESSION['id_instituicao'];
+        $emailLogin = explode(' ', $nome);      
         if($email == ""){
-
-        $email = $emailLogin[0].$this->geraSenha().'@boletimflex.com.br';
+			$email = $emailLogin[0].$this->geraSenha().'@boletimflex.com.br';
         }
-
-
         if($identidade == ""){
-        $identidade = $this->geraSenha(8, false, true);
+			$identidade = $this->geraSenha(8, false, true);
         }
-
-
          include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
 
          $query_select = mysql_query("SELECT cod_professor FROM professor WHERE email = '$email'") or die ("Erro select ". mysql_errno());
-
          $query_select2 = mysql_query("SELECT cod_usuario FROM usuario WHERE email = '$email'") or die ("Erro select ". mysql_errno());
 
-	 // verificando se a query retornou algum valor
-	 $quant = mysql_num_rows($query_select);
-         $quant2 = mysql_num_rows($query_select2);
+		// verificando se a query retornou algum valor
+		$quant = mysql_num_rows($query_select);
+		$quant2 = mysql_num_rows($query_select2);
 
 		// se retornou então envia a mensagem
-            if ($quant > 0 or $quant2 > 0)
-            {
-                 $this->resultado = "NAO";
-            } else
-                 {
-                     $query_insert = mysql_query("INSERT INTO professor VALUE (NULL, '$nome','$email','$cod_cidade','$cod_bairro','$cod_rua','$complemento','$numero','$cod_uf','$telefone','$cod_status', '$cod_instituicao','$cep','$identidade')") or die ("Erro insert ". mysql_errno());
-                     
-                     $query_grid = mysql_query("SELECT cod_professor, professor.nome, cidade_nome , telefone FROM professor, cidade WHERE professor.cod_cidade = cidade_id AND cod_instituicao = '$cod_instituicao' AND cod_status = 1 ORDER BY professor.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&nome$i=$result[1]";
-                            echo "&cidade$i=$result[2]";
-                            echo "&telefone$i=$result[3]";
-                            $i++;
-
-                        }
-
-                        $query_consulta = mysql_query("SELECT cod_professor FROM professor WHERE cod_instituicao = '$cod_instituicao' ORDER BY  cod_professor DESC LIMIT 1",$conn) or die ("Error na consulta");
-                        $resultado = mysql_fetch_array($query_consulta);
-                        $senha =  md5($identidade);
-                        $query_insert = mysql_query("INSERT INTO usuario VALUE (NULL, '$nome','$email','$senha',4,2,$resultado[0],'$cod_instituicao','$email')") or die ("Erro insert ". mysql_errno());
-
-                        // envio do email ---------------------------------------------------------------------------------------------------
-
-				$para = $email;
-                                $emailsender = "equipe@boletimflex.com";
-                                $area = "Professores";
-
-
-                                $str[0] = utf8_decode("Olá");
-                                $str[1] = utf8_decode("Instituição");
-                                $str[2] = utf8_decode("Área Restrita");
-                                
-
-				$assunto = "Cadastro Boletimflex!";
-
-				$headers = "MIME-Version: 1.0\n";
-				$headers .= "Content-type: text/html; charset=iso-8859-1\n";
-				$headers .= "From: boletimflex <equipe@boletimflex.com>\n";
-
-				$headers .= "Return-Path: boletimflex <equipe@boletimflex.com>";
-
-				$mensagem = "$str[0]!, $nome. <br /> <br />";
-				$mensagem .= "Voce foi cadastrado pela $str[1] $instituicao no sistema boletimflex, abaixo segue seus dados de acesso! <br /> <br />";
-				$mensagem .= "<a href=\"http://www.boletimflex.com/boletim/$pasta\">http://www.boletimflex.com/boletim/$pasta</a><br /> <br />";
-				$mensagem .= "$str[2]: $area. <br />";
-                                $mensagem .= "login: " .$email. "<br />";
-                                $mensagem .= "senha: " .$identidade."";
-
-				/* Enviando a mensagem */
-
-				mail($para, $assunto, $mensagem, $headers,"-r".$emailsender) or die ("ERRO ao enviar mensagem!");
-
-
-
-
-                     $this->resultado = "ok";
-                }
-     }// fim do método
-
-     public function select_grid_professor() { // método para preenchimento da grid no form
-
-     session_start();
-
-     $cod_instituicao = (int) $_SESSION['id_instituicao'];
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-                    $query_grid = mysql_query("SELECT cod_professor, professor.nome, cidade_nome , telefone FROM professor, cidade WHERE professor.cod_cidade = cidade_id AND cod_instituicao = '$cod_instituicao' AND cod_status = 1 ORDER BY professor.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                   $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&nome$i=$result[1]";
-                            echo "&cidade$i=$result[2]";
-                            echo "&telefone$i=$result[3]";
-                            $i++;
-
-                        }
-                     
-                     
-     }
-
-     public function select_professor($cod_professor){
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-         $query_select = mysql_query("SELECT professor.nome, professor.email, professor.cod_cidade, cidade_nome, professor.cod_bairro, bairro_nome, professor.cod_rua, rua_nome, professor.complemento, professor.numero, professor.cod_uf, uf_sigla, professor.telefone, professor.cod_status, status3.nome, professor.cod_instituicao, instituicao.nome, professor.cep, professor.cod_professor, professor.identidade FROM professor, cidade, bairro, rua, uf, status3, instituicao WHERE professor.cod_cidade = cidade.cidade_id AND professor.cod_bairro = bairro.bairro_id AND professor.cod_rua = rua_id AND professor.cod_status = status3.cod_status AND professor.cod_uf = uf_id AND professor.cod_instituicao = instituicao.cod_instituicao AND cod_professor = '$cod_professor'") or die (mysql_error(). "erro em select");
-
-         $quant = mysql_num_rows($query_select);
-
-				// se retornou então preenche os dados
-	if ($quant > 0)
-	{	
-
-
-                $result = mysql_fetch_array($query_select); // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&nome=$result[0]";
-                            echo "&email=$result[1]";
-                            echo "&cod_cidade=$result[2]";
-                            echo "&nome_cidade=$result[3]";
-                            echo "&cod_bairro=$result[4]";
-                            echo "&nome_bairro=$result[5]";
-                            echo "&cod_rua=$result[6]";
-                            echo "&nome_rua=$result[7]";
-                            echo "&complemento=$result[8]";
-                            echo "&numero=$result[9]";
-                            echo "&cod_uf=$result[10]";
-                            echo "&nome_uf=$result[11]";
-                            echo "&telefone=$result[12]";
-                            echo "&cod_status=$result[13]";
-                            echo "&nome_status=$result[14]";
-                            echo "&cod_instituicao=$result[15]";
-                            echo "&nome_instituicao=$result[16]";
-                            echo "&cep=$result[17]";
-                            echo "&codigo=$result[18]";
-                            echo "&identidade=$result[19]";
-                            
-
-                        
-                $this->resultado = "OK";
-        } else {
-
-          $this->resultado = "nao";
-        }
-     }
-
-
-     public function update_professor($nome,$email,$cod_cidade,$cod_bairro,$cod_rua,$complemento,$numero,$cod_uf,$telefone,$cod_status,$cod_professor,$cod_instituicao,$cep,$identidade)
-     {
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-
-         if($cod_status > 1){
-
-             $query_update = mysql_query("UPDATE usuario SET usuario_atrib = 6 WHERE cod_aluno_professor = '$cod_professor' AND referencia = 2") or die("ERRO!");
-         } else if($cod_status == 1){
-
-              $query_update = mysql_query("UPDATE usuario SET usuario_atrib = 4 WHERE cod_aluno_professor = '$cod_professor' AND referencia = 2") or die("ERRO!");
-         }
-
-         
-         $query_insert = mysql_query("UPDATE professor SET nome = '$nome', email = '$email', cod_cidade = '$cod_cidade', cod_bairro = '$cod_bairro', cod_rua = '$cod_rua', complemento = '$complemento', numero = '$numero', cod_uf = '$cod_uf', telefone = '$telefone', cod_status = '$cod_status', cod_instituicao = '$cod_instituicao', cep = '$cep', identidade = '$identidade' WHERE cod_professor = '$cod_professor'") or die ("Erro insert ". mysql_errno());
-
-                     $query_grid = mysql_query("SELECT cod_professor, professor.nome, cidade_nome , telefone FROM professor, cidade WHERE professor.cod_cidade = cidade_id AND cod_status = 1 AND cod_instituicao = '$cod_instituicao' ORDER BY professor.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&nome$i=$result[1]";
-                            echo "&cidade$i=$result[2]";
-                            echo "&telefone$i=$result[3]";
-                            $i++;
-
-                        }
-
-
-                     $this->resultado = "ok";
-               
-     }// fim do método
-
-      public function select_grid_disciplina($cod_professor,$ano) { // método para preenchimento da grid no form
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-
-                     if($ano != ""){
-                         $where = " AND YEAR(turma.data) = '$ano'";
-                     } else{
-                        $where = "";
-                     }
-
-                   $query_grid = mysql_query("SELECT cod_disciplina, curso.nome, disciplina.nome, professor.nome, turma.nome FROM disciplina, professor, curso, turma WHERE disciplina.cod_professor = professor.cod_professor AND disciplina.cod_curso = curso.cod_curso AND turma.cod_turma = disciplina.cod_turma AND professor.cod_professor = '$cod_professor' $where ORDER BY disciplina.nome",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&curso$i=$result[1]";
-                            echo "&disciplina$i=$result[2]";
-                            echo "&professor$i=$result[3]";
-                            echo "&turma$i=$result[4]";
-
-
-
-                            $i++;
-
-                        }
-                     $this->resultado = "ok";
-
-
-
-     }
-
-      public function select_grid_disciplina_ano($cod_professor,$ano) { // método para preenchimento da grid no form
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-
-                     if($ano != ""){
-                         $where = " AND YEAR(turma.data) = '$ano'";
-                     } else{
-                        $where = "";
-                     }
-
-                   $query_grid = mysql_query("SELECT cod_disciplina, curso.nome, disciplina.nome, professor.nome, turma.nome FROM disciplina, professor, curso, turma WHERE disciplina.cod_professor = professor.cod_professor AND disciplina.cod_curso = curso.cod_curso AND turma.cod_turma = disciplina.cod_turma AND professor.cod_professor = '$cod_professor' $where ORDER BY disciplina.nome",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&curso$i=$result[1]";
-                            echo "&disciplina$i=$result[2]";
-                            echo "&professor$i=$result[3]";
-                            echo "&turma$i=$result[4]";
-
-
-
-                            $i++;
-
-                        }
-                     $this->resultado = "ok";
-
-
-
-     }
-
-
-
-     public function insert_plano_aula($dia,$inicio,$termino,$cod_turma,$cod_disciplina,$cod_professor,$calendario,$dia_numero,$cod_curso,$plano_aula,$atividades)
-     {
-
-
-         if(!empty($dia)){ // testando se foi passado algum valor para variável
-
-                $dia = explode("/", $dia);
-                $dia = $dia[2]."-".$dia[1]."-".$dia[0];
-
-                } else {
-
-                    $dia = '0000-00-00';
-                }
-
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-         $query_select = mysql_query("SELECT cod_plano_aula FROM plano_aula WHERE calendario = '$calendario' AND dia = '$dia' AND cod_professor = '$cod_professor' AND cod_disciplina = '$cod_disciplina' AND cod_turma = '$cod_turma'") or die ("Erro select ". mysql_error());
-
-	 // verificando se a query retornou algum valor
-	 $quant = mysql_num_rows($query_select);
-
-		// se retornou então envia a mensagem
-            if ($quant > 0)
-            {
-                 $this->resultado = "NAO";
-            } else
-                 {
-                     $query_insert = mysql_query("INSERT INTO plano_aula VALUE (NULL, '$dia','$inicio','$termino','$cod_turma', '$cod_disciplina', '$cod_professor', '$calendario', '$dia_numero', '$cod_curso','$plano_aula', '$atividades')") or die ("Erro insert1 ". mysql_erro());
-
-                    $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.nome, professor.nome, turma.nome FROM plano_aula, disciplina, professor, turma WHERE turma.cod_turma = '$cod_turma' AND disciplina.cod_professor = professor.cod_professor AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&dia$i=$result[1]";
-                            echo "&horario$i=$result[4] - $result[2] - $result[3]";
-                            echo "&disciplina$i=$result[5]";
-                            echo "&professor$i=$result[6]";
-
-
-
-                            $i++;
-
-                        }
-
-
-
-
-
-                     $this->resultado = "ok";
-                }
-     }// fim do método
-
-
-     public function select_plano_aula($codigo){
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-         $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.cod_disciplina, disciplina.nome, professor.cod_professor, professor.nome, turma.cod_turma, turma.nome, curso.cod_curso, curso.nome, dia_numero, plano_aula, atividades FROM plano_aula, disciplina, professor, turma, curso WHERE plano_aula.cod_curso = curso.cod_curso AND disciplina.cod_curso = curso.cod_curso AND turma.cod_curso = curso.cod_curso AND  plano_aula.cod_plano_aula = '$codigo' AND disciplina.cod_professor = professor.cod_professor AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-         $quant = mysql_num_rows($query_grid);
-
-				// se retornou então preenche os dados
-	if ($quant > 0)
-	{
-
-
-                $result = mysql_fetch_array($query_grid); // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo=$result[0]";
-                            echo "&dia=$result[1]";
-                            echo "&inicio=$result[2]";
-                            echo "&termino=$result[3]";
-                            echo "&horario=$result[4]";
-                            echo "&cod_disciplina=$result[5]";
-                            echo "&nome_disciplina=$result[6]";
-                            echo "&cod_professor=$result[7]";
-                            echo "&nome_professor=$result[8]";
-                            echo "&cod_turma=$result[9]";
-                            echo "&nome_turma=$result[10]";
-                            echo "&cod_curso=$result[11]";
-                            echo "&nome_curso=$result[12]";
-                            echo "&dia_numero=$result[13]";
-                            echo "&plano_aula=$result[14]";
-                            echo "&atividades=$result[15]";
-
-                $this->resultado = "OK";
-        } else {
-
-          $this->resultado = "nao";
-        }
-     }
-
-     public function select_grid_plano_aula($cod_turma) { // método para preenchimento da grid no form
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-                   $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.nome, professor.nome, turma.nome FROM plano_aula, disciplina, professor, turma WHERE turma.cod_turma = '$cod_turma' AND disciplina.cod_professor = professor.cod_professor AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&dia$i=$result[1]";
-                            echo "&horario$i=$result[4] - $result[2] - $result[3]";
-                            echo "&disciplina$i=$result[5]";
-                            echo "&professor$i=$result[6]";
-
-
-
-                            $i++;
-
-                        }
-                          $this->resultado = "ok";
-
-
-
-     }
-
-     public function update_plano_aula($dia,$inicio,$termino,$cod_turma,$cod_disciplina,$cod_professor,$calendario,$dia_numero,$cod_curso,$codigo,$plano_aula,$atividades)
-     {
-
-         if(!empty($dia)){ // testando se foi passado algum valor para variável
-
-                $dia = explode("/", $dia);
-                $dia = $dia[2]."-".$dia[1]."-".$dia[0];
-
-                } else {
-
-                    $dia = '0000-00-00';
-                }
-
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-
-                     $query_insert = mysql_query("UPDATE plano_aula SET dia = '$dia', inicio = '$inicio', termino = '$termino', cod_professor = '$cod_professor', cod_curso = '$cod_curso', cod_turma = '$cod_turma', cod_disciplina = '$cod_disciplina', calendario = '$calendario', dia_numero = '$dia_numero', plano_aula = '$plano_aula', atividades = '$atividades' WHERE cod_plano_aula = '$codigo'") or die ("Erro update". mysql_errno());
-
-                     $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.nome, professor.nome, turma.nome FROM plano_aula, disciplina, professor, turma WHERE turma.cod_turma = '$cod_turma' AND disciplina.cod_professor = professor.cod_professor AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&dia$i=$result[1]";
-                            echo "&horario$i=$result[4] - $result[2] - $result[3]";
-                            echo "&disciplina$i=$result[5]";
-                            echo "&professor$i=$result[6]";
-
-
-
-                            $i++;
-
-                        }
-
-
-
-                     $this->resultado = "ok";
-
-     }// fim do método
-
-
-     public function delete_plano_aula($codigo,$cod_turma)
-     {
-
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-
-
-
-                    $query_delete = mysql_query("DELETE FROM plano_aula WHERE cod_plano_aula = '$codigo'");
-
-                    $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.nome, professor.nome, turma.nome FROM plano_aula, disciplina, professor, turma WHERE turma.cod_turma = '$cod_turma' AND disciplina.cod_professor = professor.cod_professor AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&dia$i=$result[1]";
-                            echo "&horario$i=$result[4] - $result[2] - $result[3]";
-                            echo "&disciplina$i=$result[5]";
-                            echo "&professor$i=$result[6]";
-
-
-
-                            $i++;
-
-                        }
-
-
-
-                     $this->resultado = "ok";
-
-
-
-     }// fim do método
-
-      public function select_grid_plano_aula_professor($semestre,$datas,$disciplina) { // método para preenchimento da grid no form
-
-         session_start();
-     $cod_professor = $_SESSION['id_aluno_professor'];
-
-     if(!empty($datas)){ // testando se foi passado algum valor para variável
-
-                $datas = explode("/", $datas);
-                $datas = $datas[2]."-".$datas[1]."-".$datas[0];
-
-                $where = "AND dia = '$datas'";
-
-                } else {
-
-                    $where = "";
-                    $datas = '0000-00-00';
-                }
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-                   $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.nome, professor.nome, turma.nome FROM plano_aula, disciplina, professor, turma WHERE disciplina.cod_disciplina = '$disciplina' AND semestre = '$semestre' AND disciplina.cod_professor = professor.cod_professor AND professor.cod_professor = '$cod_professor' AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor $where ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&dia$i=$result[1]";
-                            echo "&horario$i=$result[4] - $result[2] - $result[3]";
-                            echo "&disciplina$i=$result[5]";
-                            echo "&professor$i=$result[6]";
-
-
-
-                            $i++;
-
-                        }
-                          $this->resultado = "ok";
-
-
-
-     }
-
-
-     public function consulta_plano_aula($semestre,$datas,$disciplina,$cod_professor) { // método para preenchimento da grid no form
-
-         
-     if(!empty($datas)){ // testando se foi passado algum valor para variável
-
-                $datas = explode("/", $datas);
-                $datas = $datas[2]."-".$datas[1]."-".$datas[0];
-
-                $where = "AND dia = '$datas'";
-
-                } else {
-
-                    $where = "";
-                    $datas = '0000-00-00';
-                }
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-                   $query_grid = mysql_query("SELECT cod_plano_aula, date_format(dia,'%d/%m/%Y') AS data, inicio, termino, calendario, disciplina.nome, professor.nome, turma.nome FROM plano_aula, disciplina, professor, turma WHERE disciplina.cod_disciplina = '$disciplina' AND semestre = '$semestre' AND disciplina.cod_professor = professor.cod_professor AND professor.cod_professor = '$cod_professor' AND plano_aula.cod_disciplina = disciplina.cod_disciplina AND turma.cod_turma = disciplina.cod_turma AND plano_aula.cod_turma = turma.cod_turma AND plano_aula.cod_professor = professor.cod_professor $where ORDER BY  dia_numero, calendario, inicio",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&dia$i=$result[1]";
-                            echo "&horario$i=$result[4] - $result[2] - $result[3]";
-                            echo "&disciplina$i=$result[5]";
-                            echo "&professor$i=$result[6]";
-
-
-
-                            $i++;
-
-                        }
-                          $this->resultado = "ok";
-
-
-
-     }
-
-     public function geraSenha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos = false, $minusculas = false)
-
- {
-
- // Caracteres de cada tipo
-
- $lmin = 'abcdefghijklmnopqrstuvwxyz';
-
- $lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
- $num = '1234567890';
-
- $simb = '!@#$%*-';
-
-
-
- // Variáveis internas
-
- $retorno = '';
-
- $caracteres = '';
-
-
-
- // Agrupamos todos os caracteres que poderão ser utilizados
-
- if ($minusculas) $caracteres .= $lmin;
-
- if ($maiusculas) $caracteres .= $lmai;
-
- if ($numeros) $caracteres .= $num;
-
- if ($simbolos) $caracteres .= $simb;
-
-
-
- // Calculamos o total de caracteres possíveis
-
- $len = strlen($caracteres);
-
-
-
- for ($n = 1; $n <= $tamanho; $n++) {
-
- // Criamos um número aleatório de 1 até $len para pegar um dos caracteres
-
- $rand = mt_rand(1, $len);
-
- // Concatenamos um dos caracteres na variável $retorno
-
- $retorno .= $caracteres[$rand-1];
-
- }
-
-
-
-return $this->senha = $retorno;
-
- }
-
-
-
-
-
-
+		if ($quant > 0 or $quant2 > 0) {
+			 return 110;
+		}
+		else {
+			$query_insert = mysql_query("INSERT INTO professor (cod_professor, nome, email, cidade, bairro, rua, complemento, numero, cod_uf, telefone, cod_status, cod_instituicao, cep, identidade) VALUES (NULL, '$nome','$email','$cidade','$bairro','$rua','$complemento','$numero','$cod_uf','$telefone','$cod_status', '$cod_instituicao','$cep','$identidade')") or die ("Erro insert ". mysql_errno());   															
+			$query_grid = mysql_query("SELECT cod_professor, professor.nome, cidade_nome , telefone FROM professor, cidade WHERE professor.cod_cidade = cidade_id AND cod_instituicao = '$cod_instituicao' AND cod_status = 1 ORDER BY professor.nome",$conn) or die ("Error na consulta");
+			
+			$query_consulta = mysql_query("SELECT cod_professor FROM professor WHERE cod_instituicao = '$cod_instituicao' ORDER BY  cod_professor DESC LIMIT 1",$conn) or die ("Error na consulta");
+			$resultado = mysql_fetch_array($query_consulta);
+			$senha =  md5($identidade);
+			$query_insert = mysql_query("INSERT INTO usuario VALUE (NULL, '$nome','$email','$senha',4,2,$resultado[0],'$cod_instituicao','$email')") or die ("Erro insert ". mysql_errno());
+			return 0;
+		}
+    }
+
+    public function update_professor($nome,$email,$cod_cidade,$cod_bairro,$cod_rua,$complemento,$numero,$cod_uf,$telefone,$cod_status,$cod_professor,$cod_instituicao,$cep,$identidade){
+		include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
+        if($cod_status > 1){
+			$query_update = mysql_query("UPDATE usuario SET usuario_atrib = 6 WHERE cod_aluno_professor = '$cod_professor' AND referencia = 2") or die("ERRO!");
+		}
+		elseif($cod_status == 1){
+			$query_update = mysql_query("UPDATE usuario SET usuario_atrib = 4 WHERE cod_aluno_professor = '$cod_professor' AND referencia = 2") or die("ERRO!");
+		}
+		$query_insert = mysql_query("UPDATE professor SET nome = '$nome', email = '$email', cod_cidade = '$cod_cidade', cod_bairro = '$cod_bairro', cod_rua = '$cod_rua', complemento = '$complemento', numero = '$numero', cod_uf = '$cod_uf', telefone = '$telefone', cod_status = '$cod_status', cod_instituicao = '$cod_instituicao', cep = '$cep', identidade = '$identidade' WHERE cod_professor = '$cod_professor'") or die ("Erro insert ". mysql_errno());
+		return 1;               
+	}
+	*/
+	
+	public function geraSenha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos = false, $minusculas = false){
+		$lmin = 'abcdefghijklmnopqrstuvwxyz';
+		$lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$num = '1234567890';
+		$simb = '!@#$%*-';
+		$retorno = '';
+		$caracteres = '';
+		if ($minusculas){
+			$caracteres .= $lmin;
+		}
+		if ($maiusculas){
+			$caracteres .= $lmai;
+		}
+		if ($numeros){
+			$caracteres .= $num;
+		}
+		if ($simbolos) {
+			$caracteres .= $simb;
+		}
+		$len = strlen($caracteres);
+		for ($n = 1; $n <= $tamanho; $n++){
+			$rand = mt_rand(1, $len);
+			$retorno .= $caracteres[$rand-1];
+		}
+		return $this->senha = $retorno;
+	}
+	
 }
 ?>

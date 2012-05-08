@@ -10,8 +10,9 @@ $pdf->SetMargins(10, 10, 10);
 $pdf->Open();
 $pdf->AddPage();
 
-$conn = mysql_connect("mysql01.boletimflex.com","boletimflex","rootflex123");
-mysql_select_db("boletimflex") or die ("ERRO seleciona banco!");
+require_once("../scripts/conecta.php");
+/*$conn = mysql_connect("mysql01.boletimflex.com","boletimflex","rootflex123");
+mysql_select_db("boletimflex") or die ("ERRO seleciona banco!");*/
 
 $cod_instituicao = (int) $_SESSION['id_instituicao'];
 $cod_turma = $_POST['cod_turma'];

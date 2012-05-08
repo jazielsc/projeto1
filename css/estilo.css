@@ -1,3 +1,25 @@
+/**********************
+  INICIO PARTE ANDERSON 
+***********************/
+.form_subtitulo{
+	color: #EEEEEE;
+	background-color: #000000;
+	font-weight: bolder;
+	font-size: 18px;
+	padding:4px 0px 0px 10px;
+}
+
+.rotulo{
+	font-family: arial, serif;
+	font-weight: bolder;
+	font-size: 16px;
+}
+.div_filtro{
+	padding:10px 0px 0px 40px;
+}
+/**********************
+  FIM PARTE ANDERSON 
+***********************/
 body{
 	background-color: #E5E5E5;
 	margin-top: 0px;
@@ -35,6 +57,7 @@ body{
 	border-top-right-radius: 2px;
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
+	border: 0px solid gray;
 }
 
 .conteudo table{
@@ -47,9 +70,15 @@ body{
 }
 
 .titulo {
-	position: absolute;
-	left: 7px;
-	top: 14px;
+	position: relative;
+	top: 0px;
+	height: 25px;
+	width: 100%;
+	background: gray;
+	text-align: center;
+	color: #fff;
+	font-weight: bolder;
+	font-size: 21;
 }
 
 .botao {
@@ -97,7 +126,7 @@ body{
 	border-top: 1px solid transparent;
 	border-left: 1px dashed #F8F8F8;
 	height: 17px;
-	font-size: 11;
+	font-size: 11px;
 }
 
 #box-table-a th a{
@@ -125,7 +154,7 @@ body{
 	left: 385px;
 	width: 340px;
 	height: 100px;
-	font-size: 12;
+	font-size: 12px;
 }
 
 #campos_login {
@@ -292,84 +321,21 @@ body{
 
 /* ------------------------------------------------------------------------------------------------------------*/
 
-/************************* TABELAS ORDENADAS ------********/
-
-form{
-  background-color:#f2f2f2;
-  width:600px;
-  margin:10px 0 10px 0;
-  text-align:center;
+.formulario{
+	position: relative;
+	top: 0px;
+	height:691px;
+	width: 100%;
+	left: 50%;
+	margin-left: -50%;
+	overflow-x: none;
+	overflow-y: scroll;
+	background-color: #F0F0F0;
 }
 
-form p{
-  padding:12px;
-}
-
-form p label{
-  color:#333;
-  font-weight:900;
-}
-
-form input{
-  padding:6px;
-  border:1px solid #ccc;
-  width:300px;
-}
-
-table#tabela-lista{
-  width:600px;
-  border:1px solid #ccc;
-}
-
-table#tabela-lista thead th{
-  background-color:#f2f2f2;
-  padding:5px;
-  color:#000;
-  text-align:center;
-  font-size:14px;
-}
-
-table#tabela-lista thead th.header{
-  cursor:pointer;
-}
-
-table#tabela-lista tbody td{
-  font-size:12px;	
-  padding:2px;
-  text-align:center;
-  color:#333;
-}
-
-table#tabela-lista tbody tr.odd td{
-  background-color:#ffffcc;
-}
-
-table#tabela-lista tbody tr.hover td{
-  background-color:#a9d0f5;
-}
-
-table#tabela-lista tbody tr.selected td{
-  background-color:#a9f5a9!important;
-}
-
-.pagedisplay{
-    width:40px;
-    text-align:center;
-    border:none;
-    background-color:#f2f2f2;
-    font-weight:900;
-}
-
-#pager span{
-    font-weight:900;
-    display:inline-block;
-    margin:0 0 0 20px;
-    color:#666;
-    float:right;
-}
-
-#pager form{
-    text-align:left;
-    padding:10px;
-    width:580px;
+.rodape_form{
+	position: relative;
+	height: 55px;
+	bottom: 0%;
+	background-color: gray;
 }

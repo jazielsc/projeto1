@@ -1,255 +1,142 @@
 <?php
-
-
-	if (isset($_POST['acao']))
-{
-
-
-
-	require($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/seguranca.php");
-	require($_SERVER['DOCUMENT_ROOT']."/boletim/class/class_aluno.php");
+	session_start();
+	if (isset($_POST['acao'])){
+		require($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/seguranca.php");
+		require($_SERVER['DOCUMENT_ROOT']."/boletim/class/class_aluno.php");
         $aluno = new Class_aluno;
-	$action = $_POST['acao'];
-
-	switch ($action)
-	{
-
-			case "insert_aluno":
-
-			
-
-			
-			if(isset($_POST['nome'])){
-			$nome = seguranca($_POST['nome']);
-                        }
-			if(isset($_POST['email'])){
-			$email = seguranca($_POST['email']);
-                        }
-
-			if(isset($_POST['cod_cidade'])){
-			$cod_cidade = (int)$_POST['cod_cidade'];
-			}
-
-                        if(isset($_POST['cod_bairro'])){
-			$cod_bairro = (int)$_POST['cod_bairro'];
-			}
-
-                        if(isset($_POST['cod_rua'])){
-			$cod_rua = (int)$_POST['cod_rua'];
-			}
-
-			if(isset($_POST['complemento'])){
-			$complemento = seguranca($_POST['complemento']);
-			} else {
-                        $complemento = NULL;
-                        }
-
-                        if(isset($_POST['numero'])){
-			$numero = seguranca($_POST['numero']);
-			} else {
-                        $numero = NULL;
-                        }
-
-                        if(isset($_POST['cod_uf'])){
-			$cod_uf = (int)$_POST['cod_uf'];
-			}
-
-			if(isset($_POST['telefone'])){
-			$telefone = seguranca($_POST['telefone']);
-			}
-
-                        if(isset($_POST['celular'])){
-			$celular = seguranca($_POST['celular']);
-			}
-
-                        if(isset($_POST['cod_status'])){
-			$cod_status = (int)$_POST['cod_status'];
-			}
-
-                        if(isset($_POST['cod_instituicao'])){
-			$cod_instituicao = (int)$_POST['cod_instituicao'];
-			}
-
-                        if(isset($_POST['matricula'])){
-			$matricula = (int)$_POST['matricula'];
-			}
-
-                        if(isset($_POST['cep'])){
-			$cep = seguranca($_POST['cep']);
-			}
-
-                        if(isset($_POST['opcao'])){
-			$opcao = seguranca($_POST['opcao']);
-			}
-
-                        if(isset($_POST['responsavel'])){
-			$responsavel = seguranca($_POST['responsavel']);
-			}
-
-                        if(isset($_POST['email_responsavel'])){
-			$email_responsavel = seguranca($_POST['email_responsavel']);
-			}
-
-                        if(isset($_POST['cod_curso'])){
-			$cod_curso = (int) $_POST['cod_curso'];
-			}
-
-                        if(isset($_POST['identidade'])){
-			$identidade = seguranca($_POST['identidade']);
-			}
-
-                        if(isset($_POST['datanasc'])){
-			$datanasc = seguranca($_POST['datanasc']);
-			}
-
-			
-			$aluno->insert_aluno($nome, $email, $cod_cidade, $cod_bairro, $cod_rua, $complemento, $numero, $cod_uf, $telefone, $cod_status,$cod_instituicao,$matricula,$cep,$responsavel, $email_responsavel, $cod_curso,$identidade,$datanasc,$celular,$opcao);
-                        
-                        echo"&resultado=$aluno->resultado";
-
-                         echo"&cod_aluno=$aluno->cod_aluno";
-
-		        break;
-
-                        case "select_grid_aluno":
-
-                        $aluno->select_grid_aluno();
-
-                        break;
-
-                        case "select_aluno":
-
-                        if(isset($_POST['cod_aluno'])){
-			$cod_aluno = (int)$_POST['cod_aluno'];
-			}
-
-                        $aluno->select_aluno($cod_aluno);
-                        echo"&resultado=$aluno->resultado";
-
-                        break;
-
-                        case "update_aluno":
-
-
-                        if(isset($_POST['cod_aluno'])){
-			$cod_aluno = (int)$_POST['cod_aluno'];
-			}
-
-			if(isset($_POST['nome'])){
-			$nome = seguranca($_POST['nome']);
-                        }
-			if(isset($_POST['email'])){
-			$email = seguranca($_POST['email']);
-                        }
-
-			if(isset($_POST['cod_cidade'])){
-			$cod_cidade = (int)$_POST['cod_cidade'];
-			}
-
-                        if(isset($_POST['cod_bairro'])){
-			$cod_bairro = (int)$_POST['cod_bairro'];
-			}
-
-                        if(isset($_POST['cod_rua'])){
-			$cod_rua = (int)$_POST['cod_rua'];
-			}
-
-			if(isset($_POST['complemento'])){
-			$complemento = seguranca($_POST['complemento']);
-			} else {
-                        $complemento = NULL;
-                        }
-
-                        if(isset($_POST['numero'])){
-			$numero = seguranca($_POST['numero']);
-			} else {
-                        $numero = NULL;
-                        }
-
-                        if(isset($_POST['cod_uf'])){
-			$cod_uf = (int)$_POST['cod_uf'];
-			}
-
-			if(isset($_POST['telefone'])){
-			$telefone = seguranca($_POST['telefone']);
-			}
-
-                        if(isset($_POST['celular'])){
-			$celular = seguranca($_POST['celular']);
-			}
-
-                        if(isset($_POST['cod_status'])){
-			$cod_status = (int)$_POST['cod_status'];
-			}
-
-                        if(isset($_POST['cod_instituicao'])){
-			$cod_instituicao = (int)$_POST['cod_instituicao'];
-			}
-
-                        if(isset($_POST['matricula'])){
-			$matricula = (int)$_POST['matricula'];
-			}
-
-                        if(isset($_POST['cep'])){
-			$cep = seguranca($_POST['cep']);
-			}
-
-                        if(isset($_POST['responsavel'])){
-			$responsavel = seguranca($_POST['responsavel']);
-			}
-
-                        if(isset($_POST['email_responsavel'])){
-			$email_responsavel = seguranca($_POST['email_responsavel']);
-			}
-
-                        if(isset($_POST['cod_curso'])){
-			$cod_curso = (int) $_POST['cod_curso'];
-			}
-
-                        if(isset($_POST['identidade'])){
-			$identidade = seguranca($_POST['identidade']);
-			}
-
-                        if(isset($_POST['datanasc'])){
-			$datanasc = seguranca($_POST['datanasc']);
-			}
-
-			$aluno->update_aluno($nome, $email, $cod_cidade, $cod_bairro, $cod_rua, $complemento, $numero, $cod_uf, $telefone, $cod_status,$cod_aluno,$cod_instituicao,$matricula,$cep,$responsavel,$email_responsavel,$cod_curso,$identidade,$datanasc,$celular);
-
-                        echo"&resultado=$aluno->resultado";
-
-                        
-		        break;
-
-
-                        case "select_grid_plano_aula_aluno":
-
-                            
-                        if(isset($_POST['semestre'])){
-			$semestre = (int)$_POST['semestre'];
-			}
-                        
-                        if(isset($_POST['datas'])){
-			$datas = $_POST['datas'];
-			}
-
-                        if(isset($_POST['disciplina'])){
-			$disciplina = (int)$_POST['disciplina'];
-			}
-
-
-                        $aluno->select_grid_plano_aula_aluno($semestre, $datas, $disciplina);
-
-                        break;
-
-
+		$action = $_POST['acao'];
+		switch ($action){
+			case "insert_aluno": {
+				$_1_identificacao_unica = $_POST['1_identificacao_unica'];
+				$_2_nome_completo = $_POST['2_nome_completo'];
+				$_3_nis = $_POST['3_nis'];
+				$_4_data_nascimento = $_POST['4_data_nascimento'];
+				$_5_sexo = $_POST['5_sexo'];
+				$_6_cor_raca = $_POST['6_cor_raca'];
+				$_7_mae = $_POST['7_mae'];
+				$_7_pai = $_POST['7_pai'];
+				$_8_nacionalidade = $_POST['8_nacionalidade'];
+				$_9_pais_origem = $_POST['9_pais_origem'];
+				$_10_uf_nascimento = $_POST['10_uf_nascimento'];
+				$_11_municipio_nascimento = $_POST['11_municipio_nascimento'];
+				$_12_deficiencia = $_POST['12_deficiencia'];
+				$_12a_tipo_deficiencia = $_POST['12a_tipo_deficiencia'];
+				$_13_identidade = $_POST['13_identidade'];
+				$_13a_complemento_identidade = $_POST['13a_complemento_identidade'];
+				$_13b_orgao_emissor = $_POST['13b_orgao_emissor'];
+				$_13c_uf = $_POST['13c_uf'];
+				$_13d_data_emissao = $_POST['13d_data_emissao'];
+				$_14_certidao_civil = $_POST['14_certidao_civil'];
+				$_14a_tipo = $_POST['14a_tipo'];
+				$_14b_numero_termo = $_POST['14b_numero_termo'];
+				$_14c_folha = $_POST['14c_folha'];
+				$_14d_livro = $_POST['14d_livro'];
+				$_14e_data_emissao_certidao = $_POST['14e_data_emissao_certidao'];
+				$_14f_uf_cartorio = $_POST['14f_uf_cartorio'];
+				$_14g_municipio_cartorio = $_POST['14g_municipio_cartorio'];
+				$_14h_nome_cartorio = $_POST['14h_nome_cartorio'];
+				$_14i_numero_matricula = $_POST['14i_numero_matricula'];
+				$_15_cpf = $_POST['15_cpf'];
+				$_16_passaporte = $_POST['16_passaporte'];
+				$_17_localizacao = $_POST['17_localizacao'];
+				$_18_cep = $_POST['18_cep'];
+				$_19_endereco = $_POST['19_endereco'];
+				$_20_numero = $_POST['20_numero'];
+				$_21_complemento = $_POST['21_complemento'];
+				$_22_bairro = $_POST['22_bairro'];
+				$_23_uf = $_POST['23_uf'];
+				$_24_municipio = $_POST['24_municipio'];
+				$_25_nome_turma = $_POST['25_nome_turma'];
+				$_26_turma_unificada = $_POST['26_turma_unificada'];
+				$_27_educacao_infantil = $_POST['27_educacao_infantil'];
+				$_27_ensino_fundamental_serie = $_POST['27_ensino_fundamental_serie'];
+				$_27_ensino_fundamental_ano = $_POST['27_ensino_fundamental_ano'];
+				$_27_educacao_jovens_adultos = $_POST['27_educacao_jovens_adultos'];
+				$_27_educacao_profissional_mista = $_POST['27_educacao_profissional_mista'];
+				$_28_escolarizacao_fora_escola = $_POST['28_escolarizacao_fora_escola'];
+				$_29_transporte_publico = $_POST['29_transporte_publico'];
+				$_29a_poder_responsavel = $_POST['29a_poder_responsavel'];
+				$cod_instituicao = $_SESSION['id_instituicao'];
+				$cod_curso = $_POST['cod_curso'];
+				$cod_status = $_POST['cod_status'];
+				$email = $_POST['email'];
+				$nome_responsavel = $_POST['nome_responsavel'];
+				$email_responsavel = $_POST['email_responsavel'];
+				$matricula = $_POST['matricula'];
+				$aluno->insere_aluno($_1_identificacao_unica, $_2_nome_completo, $_3_nis, $_4_data_nascimento, $_5_sexo, $_6_cor_raca, $_7_mae, $_7_pai, $_8_nacionalidade, $_9_pais_origem, $_10_uf_nascimento, $_11_municipio_nascimento, $_12_deficiencia, $_12a_tipo_deficiencia, $_13_identidade, $_13a_complemento_identidade, $_13b_orgao_emissor, $_13c_uf, $_13d_data_emissao, $_14_certidao_civil,$_14a_tipo, $_14b_numero_termo, $_14c_folha, $_14d_livro, $_14e_data_emissao_certidao, $_14f_uf_cartorio, $_14g_municipio_cartorio, $_14h_nome_cartorio, $_14i_numero_matricula, $_15_cpf, $_16_passaporte, $_17_localizacao, $_18_cep,$_19_endereco, $_20_numero, $_21_complemento, $_22_bairro, $_23_uf, $_24_municipio, $_25_nome_turma, $_26_turma_unificada, $_27_educacao_infantil, $_27_ensino_fundamental_serie, $_27_ensino_fundamental_ano, $_27_educacao_jovens_adultos, $_27_educacao_profissional_mista, $_28_escolarizacao_fora_escola, $_29_transporte_publico, $_29a_poder_responsavel, $cod_instituicao, $cod_curso, $cod_status, $email, $nome_responsavel, $email_responsavel, $matricula);
+				header("Location: /paginas/cadastro_aluno.php?sucesso=0");
+			} break;
+
+			case "update_aluno": {
+				$cod_aluno = $_POST['cod_aluno'];
+				$_1_identificacao_unica = $_POST['1_identificacao_unica'];
+				$_2_nome_completo = $_POST['2_nome_completo'];
+				$_3_nis = $_POST['3_nis'];
+				$_4_data_nascimento = $_POST['4_data_nascimento'];
+				$_5_sexo = $_POST['5_sexo'];
+				$_6_cor_raca = $_POST['6_cor_raca'];
+				$_7_mae = $_POST['7_mae'];
+				$_7_pai = $_POST['7_pai'];
+				$_8_nacionalidade = $_POST['8_nacionalidade'];
+				$_9_pais_origem = $_POST['9_pais_origem'];
+				$_10_uf_nascimento = $_POST['10_uf_nascimento'];
+				$_11_municipio_nascimento = $_POST['11_municipio_nascimento'];
+				$_12_deficiencia = $_POST['12_deficiencia'];
+				$_12a_tipo_deficiencia = $_POST['12a_tipo_deficiencia'];
+				$_13_identidade = $_POST['13_identidade'];
+				$_13a_complemento_identidade = $_POST['13a_complemento_identidade'];
+				$_13b_orgao_emissor = $_POST['13b_orgao_emissor'];
+				$_13c_uf = $_POST['13c_uf'];
+				$_13d_data_emissao = $_POST['13d_data_emissao'];
+				$_14_certidao_civil = $_POST['14_certidao_civil'];
+				$_14a_tipo = $_POST['14a_tipo'];
+				$_14b_numero_termo = $_POST['14b_numero_termo'];
+				$_14c_folha = $_POST['14c_folha'];
+				$_14d_livro = $_POST['14d_livro'];
+				$_14e_data_emissao_certidao = $_POST['14e_data_emissao_certidao'];
+				$_14f_uf_cartorio = $_POST['14f_uf_cartorio'];
+				$_14g_municipio_cartorio = $_POST['14g_municipio_cartorio'];
+				$_14h_nome_cartorio = $_POST['14h_nome_cartorio'];
+				$_14i_numero_matricula = $_POST['14i_numero_matricula'];
+				$_15_cpf = $_POST['15_cpf'];
+				$_16_passaporte = $_POST['16_passaporte'];
+				$_17_localizacao = $_POST['17_localizacao'];
+				$_18_cep = $_POST['18_cep'];
+				$_19_endereco = $_POST['19_endereco'];
+				$_20_numero = $_POST['20_numero'];
+				$_21_complemento = $_POST['21_complemento'];
+				$_22_bairro = $_POST['22_bairro'];
+				$_23_uf = $_POST['23_uf'];
+				$_24_municipio = $_POST['24_municipio'];
+				$_25_nome_turma = $_POST['25_nome_turma'];
+				$_26_turma_unificada = $_POST['26_turma_unificada'];
+				$_27_educacao_infantil = $_POST['27_educacao_infantil'];
+				$_27_ensino_fundamental_serie = $_POST['27_ensino_fundamental_serie'];
+				$_27_ensino_fundamental_ano = $_POST['27_ensino_fundamental_ano'];
+				$_27_educacao_jovens_adultos = $_POST['27_educacao_jovens_adultos'];
+				$_27_educacao_profissional_mista = $_POST['27_educacao_profissional_mista'];
+				$_28_escolarizacao_fora_escola = $_POST['28_escolarizacao_fora_escola'];
+				$_29_transporte_publico = $_POST['29_transporte_publico'];
+				$_29a_poder_responsavel = $_POST['29a_poder_responsavel'];
+				$cod_instituicao = $_SESSION['id_instituicao'];
+				$cod_curso = $_POST['cod_curso'];
+				$cod_status = $_POST['cod_status'];
+				$email = $_POST['email'];
+				$nome_responsavel = $_POST['nome_responsavel'];
+				$email_responsavel = $_POST['email_responsavel'];
+				$matricula = $_POST['matricula'];
+				$aluno->update_aluno($_1_identificacao_unica, $_2_nome_completo, $_3_nis, $_4_data_nascimento, $_5_sexo, $_6_cor_raca, $_7_mae, $_7_pai,
+								 $_8_nacionalidade, $_9_pais_origem, $_10_uf_nascimento, $_11_municipio_nascimento, $_12_deficiencia, $_12a_tipo_deficiencia,
+								 $_13_identidade, $_13a_complemento_identidade, $_13b_orgao_emissor, $_13c_uf, $_13d_data_emissao, $_14_certidao_civil,
+								 $_14a_tipo, $_14b_numero_termo, $_14c_folha, $_14d_livro, $_14e_data_emissao_certidao, $_14f_uf_cartorio, $_14g_municipio_cartorio,
+								 $_14h_nome_cartorio, $_14i_numero_matricula, $_15_cpf, $_16_passaporte, $_17_localizacao, $_18_cep, $_19_endereco, $_20_numero,
+								 $_21_complemento, $_22_bairro, $_23_uf, $_24_municipio, $_25_nome_turma, $_26_turma_unificada, $_27_educacao_infantil,
+								 $_27_ensino_fundamental_serie, $_27_ensino_fundamental_ano, $_27_educacao_jovens_adultos, $_27_educacao_profissional_mista,
+								 $_28_escolarizacao_fora_escola, $_29_transporte_publico, $_29a_poder_responsavel, $cod_instituicao, $cod_curso, $cod_status,
+								 $email, $nome_responsavel, $email_responsavel, $matricula, $cod_aluno);
+				header("Location: /paginas/cadastro_aluno.php?sucesso=1");
+			} break;
+
+		}
 	}
-
-
-
-}else{
-
-//
-
-}
 ?>

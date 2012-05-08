@@ -2,11 +2,11 @@
 	<img src="/img/banner_logout.png" width=766 height=195 />
 	<div id="tela_login">
 		<form action="sistema.php" method="POST">
-			<input type="radio" name="referencia" value=1 checked>Direção</input><br>
-			<input type="radio" name="referencia" value=2>Secretária</input><br>
-			<input type="radio" name="referencia" value=4>Professores</input><br>
-			<input type="radio" name="referencia" value=3>Alunos</input><br>
-			<input type="radio" name="referencia" value=5>Responsáveis</input>
+			<input type="radio" name="referencia" value=1 checked>Direção/SE</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=2>Secretária</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=4>Professores</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=3>Alunos</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=5>Responsáveis</input>
 			<div id="campos_login">
 				<table>
 					<tr>

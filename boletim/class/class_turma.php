@@ -1,13 +1,6 @@
 <?php
 
-/**
- * classe para manipulação dos dados referente ao turma
- *
- * @author Administrador
- */
-class Class_turma
-{
-
+class Class_turma{
 
      public $cod_turma;
      public $nome;
@@ -19,314 +12,45 @@ class Class_turma
      public $data_final;
 
                    
-     public function insert_turma($nome,$data,$cod_instituicao,$cod_curso,$turno,$semestre,$data_final)
-     {
+     public function insert_turma($_cod_instituicao, $_cod_curso, $_turno, $_semestre, $_ano, $_1_, $_2_1_, $_2_2_, $_3_, $_4_, $_5_1_, $_5_2_, $_5_3_, $_5_4_, $_5_5_, $_5_6_, $_6_1_, $_6_2_, $_6_3_,
+								  $_6_4_, $_6_5_, $_6_6_, $_6_7_, $_6_8_, $_6_9_, $_6_10_, $_6_11_, $_7_, $_8_, $_9_1_, $_9_2_, $_9_3_, $_9_4_, $_9_5_, $_9_6_, $_9_7_, $_9_8_, $_9_9_, $_9_10_, $_9_11_, $_9_12_,
+								  $_9_13_, $_9_14_, $_9_15_, $_9_16_, $_9_17_, $_9_20_, $_9_21_, $_9_23_, $_9_25_, $_9_26_, $_9_27_, $_9_99_, $_8_1_, $_8_2_, $_8_3_){
+        /*BEGIN*/
+			include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
+			$consulta = mysql_query("INSERT INTO `turma`(`cod_instituicao`, `cod_curso`, `turno`, `semestre`, `ano`, `1_`, `2_1_`, `2_2_`, `3_`, `4_`, `5_1_`, `5_2_`, `5_3_`, `5_4_`, `5_5_`, `5_6_`, `6_1_`,`6_2_`, `6_3_`, `6_4_`, `6_5_`, `6_6_`, `6_7_`, `6_8_`, `6_9_`, `6_10_`, `6_11_`, `7_`, `8_`, `9_1_`, `9_2_`, `9_3_`, `9_4_`, `9_5_`, `9_6_`, `9_7_`, `9_8_`, `9_9_`, `9_10_`, `9_11_`, `9_12_`, `9_13_`, `9_14_`, `9_15_`, `9_16_`, `9_17_`, `9_20_`, `9_21_`, `9_23_`, `9_25_`, `9_26_`, `9_27_`, `9_99_`, `8_1_`, `8_2_`, `8_3_`)
+									 VALUES ($_cod_instituicao, $_cod_curso, '$_turno', '$_semestre', '$_ano', '$_1_', '$_2_1_', '$_2_2_', '$_3_', '$_4_', '$_5_1_', '$_5_2_', '$_5_3_', '$_5_4_', '$_5_5_', '$_5_6_', '$_6_1_', '$_6_2_', '$_6_3_', '$_6_4_', '$_6_5_', '$_6_6_', '$_6_7_', '$_6_8_', '$_6_9_', '$_6_10_', '$_6_11_', '$_7_', '$_8_', '$_9_1_', '$_9_2_', '$_9_3_', '$_9_4_', '$_9_5_', '$_9_6_', '$_9_7_', '$_9_8_', '$_9_9_', '$_9_10_', '$_9_11_', '$_9_12_', '$_9_13_', '$_9_14_', '$_9_15_', '$_9_16_', '$_9_17_', '$_9_20_', '$_9_21_', '$_9_23_', '$_9_25_', '$_9_26_', '$_9_27_', '$_9_99_', '$_8_1_', '$_8_2_', '$_8_3_')") or die ("Erro insert ". mysql_erro());   
+			return 0;
+		/*END*/
+     }
 
+    public function update_turma($_cod_turma, $_cod_instituicao, $_cod_curso, $_turno, $_semestre, $_ano, $_1_, $_2_1_, $_2_2_, $_3_, $_4_, $_5_1_, $_5_2_, $_5_3_, $_5_4_, $_5_5_, $_5_6_, $_6_1_, $_6_2_, $_6_3_,
+								  $_6_4_, $_6_5_, $_6_6_, $_6_7_, $_6_8_, $_6_9_, $_6_10_, $_6_11_, $_7_, $_8_, $_9_1_, $_9_2_, $_9_3_, $_9_4_, $_9_5_, $_9_6_, $_9_7_, $_9_8_, $_9_9_, $_9_10_, $_9_11_, $_9_12_,
+								  $_9_13_, $_9_14_, $_9_15_, $_9_16_, $_9_17_, $_9_20_, $_9_21_, $_9_23_, $_9_25_, $_9_26_, $_9_27_, $_9_99_, $_8_1_, $_8_2_, $_8_3_){
+		
+		/*BEGIN*/
+			include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");        
+			$consulta = mysql_query("UPDATE `turma` SET `cod_instituicao`=$_cod_instituicao,`cod_curso`=$_cod_curso,`turno`='$_turno',`semestre`='$_semestre',`ano`='$_ano',
+									`1_`='$_1_',`2_1_`='$_2_1_',`2_2_`='$_2_2_',`3_`='$_3_',`4_`='$_4_',`5_1_`='$_5_1_',`5_2_`='$_5_2_',`5_3_`='$_5_3_',`5_4_`='$_5_4_',`5_5_`='$_5_5_',`5_6_`='$_5_6_',`6_1_`='$_6_1_',`6_2_`='$_6_2_',`6_3_`='$_6_3_',`6_4_`='$_6_4_',
+									`6_5_`='$_6_5_',`6_6_`='$_6_6_',`6_7_`='$_6_7_',`6_8_`='$_6_8_',`6_9_`='$_6_9_',`6_10_`='$_6_10_',`6_11_`='$_6_11_',`7_`='$_7_',`8_`='$_8_',`9_1_`='$_9_1_',`9_2_`='$_9_2_',`9_3_`='$_9_3_',`9_4_`='$_9_4_',`9_5_`='$_9_5_',`9_6_`='$_9_6_',
+									`9_7_`='$_9_7_',`9_8_`='$_9_8_',`9_9_`='$_9_9_',`9_10_`='$_9_10_',`9_11_`='$_9_11_',`9_12_`='$_9_12_',`9_13_`='$_9_13_',`9_14_`='$_9_14_',`9_15_`='$_9_15_',`9_16_`='$_9_16_',`9_17_`='$_9_17_',`9_20_`='$_9_20_',`9_21_`='$_9_21_',
+									`9_23_`='$_9_23_',`9_25_`='$_9_25_',`9_26_`='$_9_26_',`9_27_`='$_9_27_',`9_99_`='$_9_99_', `8_1_` = '$_8_1_', `8_2_` = '$_8_2_', `8_3_` = '$_8_3_'") or die ("Erro update". mysql_errno());
+		/*END*/
+    }
 
-         if(!empty($data)){ // testando se foi passado algum valor para variável
-
-                $data = explode("/", $data);
-                $data = $data[2]."-".$data[1]."-".$data[0];
-
-                } else {
-
-                    $data = '0000-00-00';
-                }
-
-                if(!empty($data_final)){ // testando se foi passado algum valor para variável
-
-                $data_final = explode("/", $data_final);
-                $data_final = $data_final[2]."-".$data_final[1]."-".$data_final[0];
-
-                } else {
-
-                    $data_final = '0000-00-00';
-                }
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-         $query_select = mysql_query("SELECT cod_turma FROM turma WHERE nome = '$nome' AND cod_instituicao = '$cod_instituicao' AND cod_curso = '$cod_curso'") or die ("Erro select ". mysql_error());
-
-	 // verificando se a query retornou algum valor
-	 $quant = mysql_num_rows($query_select);
-
+    public function delete_turma($codigo) {
+        $cod_instituicao = (int) $_SESSION['id_instituicao'];        
+        include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
+        $query = mysql_query("SELECT cod_turma FROM disciplina WHERE cod_turma = '$codigo'") or die (mysql_error());
+        $quant = mysql_num_rows($query);
 		// se retornou então envia a mensagem
-            if ($quant > 0)
-            {
-                 $this->resultado = "NAO"; 
-            } else
-                 {
-                     $query_insert = mysql_query("INSERT INTO turma VALUE (NULL, '$nome','$data','$cod_instituicao','$cod_curso','$turno','$semestre','$data_final')") or die ("Erro insert ". mysql_erro());
-                     
-                    $query_grid = mysql_query("SELECT cod_turma, instituicao.nome, curso.nome, turma.nome, date_format(data,'%d/%m/%Y') AS data FROM turma, instituicao, curso WHERE turma.cod_instituicao = instituicao.cod_instituicao AND turma.cod_curso = curso.cod_curso AND curso.cod_instituicao = '$cod_instituicao' ORDER BY turma.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&instituicao$i=$result[1]";
-                            echo "&curso$i=$result[2]";
-                            echo "&turma$i=$result[3]";
-                            echo "&data_inicio$i=$result[4]";
-                            
-                            $i++;
-
-                        }
-
-
-                     $this->resultado = "ok";
-                }
-     }// fim do método
-
-     public function select_grid_turma() { // método para preenchimento da grid no form
-
-
-         session_start();
-         $cod_instituicao = (int) $_SESSION['id_instituicao'];
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-                    $query_grid = mysql_query("SELECT cod_turma, instituicao.nome, curso.nome, turma.nome, date_format(data,'%d/%m/%Y') AS data FROM turma, instituicao, curso WHERE turma.cod_instituicao = instituicao.cod_instituicao AND turma.cod_curso = curso.cod_curso AND curso.cod_instituicao = '$cod_instituicao' ORDER BY turma.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&instituicao$i=$result[1]";
-                            echo "&curso$i=$result[2]";
-                            echo "&turma$i=$result[3]";
-                            echo "&data_inicio$i=$result[4]";
-
-                            $i++;
-
-                        }
-
-                     $this->resultado = "ok";
-                
-                     
-                     
+		if ($quant > 0) {
+			return 202;
+		}
+		else {
+			$query_delete = mysql_query("DELETE FROM turma WHERE cod_turma = '$codigo'");
+			return 2;
+		}
      }
-
-
-
-     public function select_turma($codigo){
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-         $query_grid = mysql_query("SELECT cod_turma, instituicao.cod_instituicao, instituicao.nome, curso.cod_curso, curso.nome, turma.nome, date_format(data,'%d/%m/%Y') AS data, turno, semestre, turma.nome, date_format(data_final,'%d/%m/%Y') AS data_final FROM turma, instituicao, curso WHERE turma.cod_instituicao = instituicao.cod_instituicao AND turma.cod_curso = curso.cod_curso AND cod_turma = '$codigo' ORDER BY turma.nome",$conn) or die ("Error na consulta" .mysql_error());
-
-         $quant = mysql_num_rows($query_grid);
-
-				// se retornou então preenche os dados
-	if ($quant > 0)
-	{	
-
-
-                $result = mysql_fetch_array($query_grid); // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo=$result[0]";
-                            echo "&cod_instituicao=$result[1]";
-                            echo "&nome_instituicao=$result[2]";
-                            echo "&cod_curso=$result[3]";
-                            echo "&nome_curso=$result[4]";
-                            echo "&nome=$result[5]";
-                            echo "&data_inicial=$result[6]";
-                            echo "&turno=$result[7]";
-                            echo "&semestre=$result[8]";
-                            echo "&data_final=$result[10]";
-                          
-
-                        
-                $this->resultado = "OK";
-        } else {
-
-          $this->resultado = "nao";
-        }
-     }
-
-
-     public function update_turma($nome,$data,$cod_instituicao,$cod_curso,$codigo,$turno,$semestre,$data_final)
-     {
-
-
-         session_start();
-         $cod_instituicao = (int) $_SESSION['id_instituicao'];
-
-         if(!empty($data)){ // testando se foi passado algum valor para variável
-
-                $data = explode("/", $data);
-                $data = $data[2]."-".$data[1]."-".$data[0];
-
-                } else {
-
-                    $data = '0000-00-00';
-                }
-
-                if(!empty($data_final)){ // testando se foi passado algum valor para variável
-
-                $data_final = explode("/", $data_final);
-                $data_final = $data_final[2]."-".$data_final[1]."-".$data_final[0];
-
-                } else {
-
-                    $data_final = '0000-00-00';
-                }
-
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-         
-                     $query_insert = mysql_query("UPDATE turma SET nome = '$nome',  data = '$data', cod_instituicao = '$cod_instituicao', cod_curso = '$cod_curso', turno = '$turno', semestre = '$semestre', data_final = '$data_final' WHERE cod_turma = '$codigo'") or die ("Erro update". mysql_errno());
-
-                    $query_grid = mysql_query("SELECT cod_turma, instituicao.nome, curso.nome, turma.nome, date_format(data,'%d/%m/%Y') AS data FROM turma, instituicao, curso WHERE turma.cod_instituicao = instituicao.cod_instituicao AND turma.cod_curso = curso.cod_curso AND curso.cod_instituicao = '$cod_instituicao' ORDER BY turma.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&instituicao$i=$result[1]";
-                            echo "&curso$i=$result[2]";
-                            echo "&turma$i=$result[3]";
-                            echo "&data_inicio$i=$result[4]";
-
-                            $i++;
-
-                        }
-
-
-
-                     $this->resultado = "OK";
-               
-     }// fim do método
-
-     public function select_grid_disciplina($cod_turma) { // método para preenchimento da grid no form
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-                   $query_grid = mysql_query("SELECT cod_disciplina, curso.nome, disciplina.nome, professor.nome, turma.nome FROM disciplina, professor, curso, turma WHERE disciplina.cod_professor = professor.cod_professor AND disciplina.cod_curso = curso.cod_curso AND turma.cod_turma = disciplina.cod_turma AND turma.cod_turma = '$cod_turma' ORDER BY disciplina.nome",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&curso$i=$result[1]";
-                            echo "&disciplina$i=$result[2]";
-                            echo "&professor$i=$result[3]";
-                            echo "&turma$i=$result[4]";
-
-
-
-                            $i++;
-
-                        }
-                     $this->resultado = "ok";
-
-
-
-     }
-
-     public function select_grid_aluno($cod_turma) { // método para preenchimento da grid no form
-
-                     include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-                     // consulta para atualizar o grid no flash
-
-                   $query_grid = mysql_query("SELECT DISTINCT matricula, aluno.nome, curso.nome
-FROM aluno, disciplina, item2, curso
-WHERE disciplina.cod_turma = '$cod_turma'
-AND disciplina.cod_disciplina = item2.cod_disciplina
-AND item2.cod_aluno = aluno.cod_aluno AND curso.cod_curso = aluno.cod_curso
-ORDER BY aluno.nome",$conn) or die ("Error na consulta1");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&aluno$i=$result[1]";
-                            echo "&curso$i=$result[2]";
-                            
-
-
-
-                            $i++;
-
-                        }
-                     $this->resultado = "ok";
-
-
-
-     }
-
-     public function delete_turma($codigo)
-     {
-
-         session_start();
-         $cod_instituicao = (int) $_SESSION['id_instituicao'];
-         
-         include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
-
-
-         $query = mysql_query("SELECT cod_turma FROM disciplina WHERE cod_turma = '$codigo'") or die (mysql_error());
-
-         $quant = mysql_num_rows($query);
-
-		// se retornou então envia a mensagem
-            if ($quant > 0)
-            {
-
-                 $this->resultado = "NAO";
-            } else
-                 {
-
-
-                    $query_delete = mysql_query("DELETE FROM turma WHERE cod_turma = '$codigo'");
-
-                    $query_grid = mysql_query("SELECT cod_turma, instituicao.nome, curso.nome, turma.nome, date_format(data,'%d/%m/%Y') AS data FROM turma, instituicao, curso WHERE turma.cod_instituicao = instituicao.cod_instituicao AND turma.cod_curso = curso.cod_curso AND curso.cod_instituicao = '$cod_instituicao' ORDER BY turma.nome",$conn) or die ("Error na consulta");
-
-                    // zerando contadores
-                    $i = 0;
-
-                    while ($result = mysql_fetch_array($query_grid))
-                        { // retornando os valores da consulta em array e enviando para o flash
-
-
-                            echo "&codigo$i=$result[0]";
-                            echo "&instituicao$i=$result[1]";
-                            echo "&curso$i=$result[2]";
-                            echo "&turma$i=$result[3]";
-                            echo "&data_inicio$i=$result[4]";
-
-                            $i++;
-
-                        }
-
-
-
-                     $this->resultado = "ok";
-
-                 }
-
-     }// fim do método
 
 }
 ?>

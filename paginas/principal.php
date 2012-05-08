@@ -17,7 +17,7 @@
 			<div class="conteudo">
 				<br>
 				<div id="desktop">
-					<img src="../img/cadastrar_aluno.png" />
+					<a href="cadastro_aluno.php"><img src="../img/cadastrar_aluno.png" /></a>
 					<img src="../img/lancar_turma.png" />
 					<img src="../img/lancar_disciplina.png" />
 					<img src="../img/lancar_notas.png" />

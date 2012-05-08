@@ -9,8 +9,9 @@ $pdf->AddPage();
 
 
 
-$conn = mysql_connect("mysql01.boletimflex.com","boletimflex","rootflex123");
-mysql_select_db("boletimflex") or die ("ERRO seleciona banco!");
+require_once("../scripts/conecta.php");
+/*$conn = mysql_connect("mysql01.boletimflex.com","boletimflex","rootflex123");
+mysql_select_db("boletimflex") or die ("ERRO seleciona banco!");*/
 
 
 $cod_turma = $_POST['cod_turma'];
@@ -20,6 +21,7 @@ $cod_curso = $_POST['cod_curso'];
 $str[2] = utf8_decode("Média");
 $str[3] = utf8_decode("RANKING");
 $str[0] = utf8_decode("Num.");
+
 
 if ($cod_turma != ""){
                      $where = "AND boletim.cod_turma = '$cod_turma'";
@@ -49,7 +51,6 @@ $pdf->ln(5);
 $pdf->Cell(55, 5, "Curso: $result[0]", 0, 0, 'L');
 if($cod_turma != "")
 $pdf->Cell(150, 5, "Turma: $result[1]", 0, 0, 'L');
-
 
 
 $pdf->ln(10);
@@ -87,14 +88,11 @@ $pdf->Cell(50, 5, "$result2[1]", 1, 0, 'L');
 $pdf->Cell(50, 5, "$result2[2]", 1, 0, 'L');
 $pdf->Cell(15, 5, "$result2[4]", 1, 0, 'L');
 
+
 $pdf->ln(5);
-
-
 $colocacao++;
 
 }
-
-
 $pdf->Output();
 
 ?>

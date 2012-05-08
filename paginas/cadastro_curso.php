@@ -3,7 +3,7 @@
 	if (!(isset($_SESSION['id_instituicao']) != "" and $_SESSION['id_instituicao'] != 0 and isset($_SESSION['NomeUsuario']) and isset($_SESSION['passagem']) and $_SESSION['remote_addr'] = $_SERVER['REMOTE_ADDR'] and  $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'])){
 		header("Location: /index.php");
 	}
-	require_once($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
+	require_once("../boletim/scripts/conecta.php");
 	
 	/* CDIGO PARA ORDENAR A TABELA PELO CABEALHO CLICADO */
 	if(!isset($_GET['ordem'])){
@@ -55,35 +55,28 @@
 			<?php  require_once('../partes/menu_login.php');?>	
 			<div class="conteudo">
 				<div class="titulo">
-					<img src="../img/Bandeira_cadastro_cursos.png" />
+					<!--<img src="../img/Bandeira_cadastro_cursos.png" />-->
+					Cadastro de Curso
 				</div>
-				<br><br><br><br><br>
-				<div style="position: relative; height: 200px; width: 600px; left: 50%; margin-left: -300px; overflow-x: none; overflow-y: scroll; border: 1px solid blue;">
+				<div class="formulario">
 					<form name="cad_curso" action="/boletim/scripts/objeto_curso.php" method="POST">
-						<center>
-							<table>
-								<input type="hidden" name="acao" value="<?php if($acao == 1) echo "insert_curso"; else echo "update_curso";?>" />
-								<tr>
-									<td class="rotulo">Nome: </td>
-									<td><input name="nome" value="<?php if($acao != 1) echo $result[1];?>" class="campo" style="width: 400px;"/></td>
-								</tr>
-								<tr>
-									<td class="rotulo">Tipo: </td>
-									<td>
-										<select name="tipo" class="campo" style="width: 250px;">
-											<option <?php if($acao != 1 && $result[2] === "Educao Infantil") echo "selected='SELECTED'";?> value="Educao Infantil">Educao Infantil</option>
-											<option <?php if($acao != 1 && $result[2] === "Ensino Fundamental") echo "selected='SELECTED'";?>value="Ensino Fundamental">Ensino Fundamental</option>
-											<option <?php if($acao != 1 && $result[2] === "Ensino Mdio") echo "selected='SELECTED'";?>value="Ensino Mdio">Ensino Mdio</option>
-											<option <?php if($acao != 1 && $result[2] === "Ensino Tcnico") echo "selected='SELECTED'";?>value="Ensino Tcnico">Ensino Tcnico</option>
-										</select>
-										<input type="hidden" name="cod_instituicao" value="<?php =$_SESSION['id_instituicao'];?>" />
-										<input type="hidden" name="cod_curso" value="<?php if(isset($_GET['id'])) echo $_GET['id'];?>" />
-									</td>
-								</tr>
-							</table>
-						</center>
+						<blockquote>
+							<img src="../img/linha_identificacao.png" WIDTH="100%"/><br><br>
+							<input type="hidden" name="acao" value="<?php if($acao == 1) echo "insert_curso"; else echo "update_curso";?>" />
+							<a style="font-weight: bolder">1 - Nome do Curso:</a><br>
+							<input name="nome" value="<?php if($acao != 1) echo $result[1];?>" class="campo" style="width: 400px;"/><br>
+							<a style="font-weight: bolder">2 - Tipo do Curso:</a><br>
+							<select name="tipo" class="campo" style="width: 250px;">
+								<option <?php if($acao != 1 && $result[2] === "Educao Infantil") echo "selected='SELECTED'";?> value="Educao Infantil">Educao Infantil</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Fundamental") echo "selected='SELECTED'";?>value="Ensino Fundamental">Ensino Fundamental</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Mdio") echo "selected='SELECTED'";?>value="Ensino Mdio">Ensino Mdio</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Tcnico") echo "selected='SELECTED'";?>value="Ensino Tcnico">Ensino Tcnico</option>
+							</select>
+							<input type="hidden" name="cod_instituicao" value="<?php =$_SESSION['id_instituicao'];?>" />
+							<input type="hidden" name="cod_curso" value="<?php if(isset($_GET['id'])) echo $_GET['id'];?>" />
+						</blockquote>
 					</div>
-					<div>
+					<div class="rodape_form">
 						<center>
 							<a style="font-weight: bolder; font-size: 12; color: red;">
 								<?php 
@@ -100,38 +93,7 @@
 						</center>
 					</div>
 				</form>
-				<div class="lista_selecao" style="width: 730px; height:400px; top: 350px; left: 50%; margin-left: -365px;">
-					<table id="box-table-a">
-						<thead>
-							<tr>
-								<th scope="col" style="width: 40px;"><a href="cadastro_curso.php?ordem=0">ID</a></th>
-								<th scope="col" style="width: 230px;"><a href="cadastro_curso.php?ordem=1">Curso</a></th>
-								<th scope="col" style="width: 230px;"><a href="cadastro_curso.php?ordem=2">Tipo</a></th>
-								<th scope="col" style="width: 20px;"><a>Excluir</a></th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php 
-							/* IMPRESSO DA LISTAGEM DE CURSOS */
-							$query_grid = mysql_query("SELECT cod_curso, curso.nome, curso.tipo FROM curso WHERE curso.cod_instituicao = ".$_SESSION['id_instituicao']." ORDER BY $ordem") or die ("Error na consulta");
-							while ($result = mysql_fetch_array($query_grid)){
-						?>
-							<tr>
-								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php =$result[0];?></a></td>
-								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php =$result[1];?></a></td>
-								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php =$result[2];?></a></td>
-								<form name="f_exclusao" action="/boletim/scripts/objeto_curso.php" method="POST">
-									<input type="hidden" name="codigo" value="<?php echo $result[0];?>" />
-									<input type="hidden" name="acao" value="delete_curso" />
-									<td style="text-align: center;"><input type="submit" value="-" style="display: block; width: 45px; height: 18px;"/></td>
-								</form>
-							</tr>
-						<?php 	
-							}
-						?>
-						</tbody>
-					</table>
-				</div>
+
 			</div>			
 		</div>
 	</body>

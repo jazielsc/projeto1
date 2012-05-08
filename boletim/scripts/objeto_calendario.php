@@ -1,65 +1,24 @@
 <?php
-
-
-	if (isset($_POST['acao']))
-{
-
-
-
-	require($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/seguranca.php");
-	require($_SERVER['DOCUMENT_ROOT']."/boletim/class/class_calendario.php");
+	
+	if (isset($_POST['acao'])){
+		require($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/seguranca.php");
+		require($_SERVER['DOCUMENT_ROOT']."/boletim/class/class_calendario.php");
         $calendarios = new Class_calendario;
-	$action = $_POST['acao'];
+		$action = $_POST['acao'];
 
-	switch ($action)
-	{
-
-			case "insert_calendario":
-
-			
-                        			
-			if(isset($_POST['dia'])){
-			$dia = seguranca($_POST['dia']);
-                        }
-
-                        if(isset($_POST['horainicio'])){
-			$inicio = seguranca($_POST['horainicio']);
-                        }
-
-                        if(isset($_POST['horatermino'])){
-			$termino = seguranca($_POST['horatermino']);
-                        }
-
-                        if(isset($_POST['horario'])){
-			$calendario = seguranca($_POST['horario']);
-                        }
-
-                        if(isset($_POST['cod_professor'])){
-			$cod_professor = (int)$_POST['cod_professor'];
-			}
-
-			if(isset($_POST['cod_disciplina'])){
-			$cod_disciplina = (int)$_POST['cod_disciplina'];
-			}
-
-                        if(isset($_POST['cod_turma'])){
-			$cod_turma = (int)$_POST['cod_turma'];
-			}
-
-                        if(isset($_POST['dia_numero'])){
-			$dia_numero = (int)$_POST['dia_numero'];
-			}
-
-                        if(isset($_POST['cod_curso'])){
-			$cod_curso = (int)$_POST['cod_curso'];
-			}
-
-                        
-			$calendarios->insert_calendario($dia, $inicio, $termino, $cod_turma, $cod_disciplina, $cod_professor, $calendario, $dia_numero, $cod_curso);
-                        
-                        echo"&resultado=$calendarios->resultado";
-
-		        break;
+		switch ($action){
+			case "insert_calendario": {
+				$dia = seguranca($_POST['dia']);
+				$inicio = seguranca($_POST['horainicio']);
+				$termino = seguranca($_POST['horatermino']);
+				$calendario = seguranca($_POST['horario']);
+				$cod_professor = (int)$_POST['cod_professor'];
+				$cod_disciplina = (int)$_POST['cod_disciplina'];
+				$cod_turma = (int)$_POST['cod_turma'];
+				$dia_numero = (int)$_POST['dia_numero'];
+				$cod_curso = (int)$_POST['cod_curso'];                      
+				$calendarios->insert_calendario($dia, $inicio, $termino, $cod_turma, $cod_disciplina, $cod_professor, $calendario, $dia_numero, $cod_curso);      
+			} break;
 
                         case "select_grid_calendario":
 

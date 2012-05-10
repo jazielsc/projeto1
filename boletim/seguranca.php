@@ -5,8 +5,6 @@
 
 function seguranca($campos){
 
-
-
 // remove palavras que contenham sintaxe sql:
 $campos = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$campos);
 

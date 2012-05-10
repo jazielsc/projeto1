@@ -70,7 +70,7 @@
 					Cadastro de Aluno
 				</div>
 				<div class="formulario">
-					<form name="cad_aluno" action="/boletim/scripts/objeto_aluno.php" method="POST">
+					<form name="cad_aluno" action="../boletim/scripts/objeto_aluno.php" method="POST">
 							<input type="hidden" name="cod_aluno" value="<?php if($acao != 1) echo $result['cod_aluno'];?>" class="campo" style="width: 400px;"/>
 							<input type="hidden" name="acao" value="<?php if($acao == 1) echo "insert_aluno"; else echo "update_aluno";?>" />
 						<blockquote>

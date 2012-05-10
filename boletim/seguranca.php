@@ -3,12 +3,6 @@
 //script de segurança 
 // autor: leonardo marinho
 
-if(!defined("kshjdhjshd1263a118")) 
-{ 
-echo "<h2>Você não tem permissão para acessar</h2><h3>Forbidden Access</h3>"; 
-die(); 
-} 
-
 function seguranca($campos){
 
 

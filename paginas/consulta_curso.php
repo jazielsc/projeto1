@@ -22,8 +22,12 @@
 	</head>
 	<body>
 		<div class="corpo">
-			<?php  require_once('../partes/menu_login.php');?>	
-				<div class="lista_selecao" style="position: relative; width: 730px; height:750px; top: 0px; left: 50%; margin-left: -365px;">
+			<?php  require_once('../partes/menu_login.php');?>
+				<div class="titulo">
+					<!--<img src="../img/Bandeira_cadastro_disciplinas.png" />-->
+					Consulta de Curso
+				</div>
+				<div class="lista_selecao" style="position: relative; width: 730px; height:700px; top: 0px; left: 50%; margin-left: -365px;">
 					<table id="box-table-a">
 						<thead>
 							<tr>

@@ -144,9 +144,15 @@ function carregaGridBoletim(idCurso, idTurma, idDisciplina, idProfessor, obj){
 	ajaxGET('loader/carrega_grid_notas.php?curso='+idCurso+'&turma='+idTurma+'&disciplina='+idDisciplina+'&professor='+idProfessor, obj,true, $('#box-table-a-boletim'));	
 }
 
+function carregaGridBoletimAluno2(idCurso, idTurma, idAluno, obj){
+	ajaxGET('loader/carrega_grid_notas_aluno2.php?curso='+idCurso+'&turma='+idTurma+'&aluno='+idAluno, obj,true, $('#box-table-a-boletim'));	
+}
+
 function carregaGridBoletimAluno(idCurso, idTurma, idDisciplina, idProfessor, idAluno, obj){
 	ajaxGET('loader/carrega_grid_notas_aluno.php?curso='+idCurso+'&turma='+idTurma+'&disciplina='+idDisciplina+'&aluno='+idAluno+'&professor='+idProfessor, obj,true, $('#box-table-a-boletim'));	
 }
+
+
 
 function carregaGridDisciplinaProfessor(idCurso, idTurma, idAluno, obj){
 	ajaxGET('loader/carrega_grid_disciplina_professor.php?cod_curso='+idCurso+'&cod_turma='+idTurma+'&cod_aluno='+idAluno, obj,true,$('#box-table-a') );	

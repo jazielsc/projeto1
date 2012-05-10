@@ -26,7 +26,7 @@
 					<ul id="css3menu1">
 						<li><a href="principal.php">&nbsp;&nbsp;&nbsp;INCIO</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;REQUISITOS</a></li>
-						<li><a href="principal.php">&nbsp;&nbsp;&nbsp;SAIR DO SISTEMA</a></li>
+						<li><a href="../partes/logout.php">&nbsp;&nbsp;&nbsp;SAIR DO SISTEMA</a></li>
 					</ul>
 				</li>
 				<li class="topmenu"><a href="#">CADASTRO</a>

@@ -46,8 +46,8 @@
 
 			/*$_SESSION['area_login'] = $area_login;*/
 			switch($referencia){
-				case 1: $_SESSION['area_login'] = "DIREÇÃO"; break;
-				case 2: $_SESSION['area_login'] = "SECRETÁRIA"; break;
+				case 1: $_SESSION['area_login'] = "DIREO"; break;
+				case 2: $_SESSION['area_login'] = "SECRETRIA"; break;
 				case 3: $_SESSION['area_login'] = "ALUNOS"; break;
 				case 4: $_SESSION['area_login'] = "PROFESSORES"; break;
 			}
@@ -62,14 +62,14 @@
 			$_SESSION['id_instituicao'] = $resultado[0];
 			$_SESSION['login'] = true;
 
-			header("Location: /paginas/principal.php");
+			header("Location: paginas/principal.php");
 		}else{
 			$_SESSION['login'] = false;
-			header("Location: /index.php");
+			header("Location: index.php");
 		}
 	}else{
 		$_SESSION['login'] = false;
-		header("Location: /index.php");
+		header("Location: index.php");
 	}               
 ?>
 

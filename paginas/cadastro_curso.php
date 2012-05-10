@@ -67,10 +67,10 @@
 							<select name="tipo" class="campo" style="width: 250px;">
 								<option <?php if($acao != 1 && $result[2] === "Educao Infantil") echo "selected='SELECTED'";?> value="Educao Infantil">Educao Infantil</option>
 								<option <?php if($acao != 1 && $result[2] === "Ensino Fundamental") echo "selected='SELECTED'";?>value="Ensino Fundamental">Ensino Fundamental</option>
-								<option <?php if($acao != 1 && $result[2] === "Ensino Mdio") echo "selected='SELECTED'";?>value="Ensino Mdio">Ensino Mdio</option>
-								<option <?php if($acao != 1 && $result[2] === "Ensino Tcnico") echo "selected='SELECTED'";?>value="Ensino Tcnico">Ensino Tcnico</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Médio") echo "selected='SELECTED'";?>value="Ensino Médio">Ensino Médio</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Técnico") echo "selected='SELECTED'";?>value="Ensino Técnico">Ensino Técnico</option>
 							</select>
-							<input type="hidden" name="cod_instituicao" value="<?php =$_SESSION['id_instituicao'];?>" />
+							<input type="hidden" name="cod_instituicao" value="<?php echo $_SESSION['id_instituicao'];?>" />
 							<input type="hidden" name="cod_curso" value="<?php if(isset($_GET['id'])) echo $_GET['id'];?>" />
 						</blockquote>
 					</div>

@@ -41,7 +41,7 @@
 							while ($result = mysql_fetch_array($query_grid)){
 						?>
 							<tr>
-								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php =$k++;?></a></td>
+								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $k++;?></a></td>
 								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $result[1];?></a></td>
 								<td><a href="cadastro_curso.php?acao=2&id=<?php echo $result[0];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $result[2];?></a></td>
 								<form name="f_exclusao" action="/boletim/scripts/objeto_curso.php" method="POST">

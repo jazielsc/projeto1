@@ -43,7 +43,7 @@
 							while ($result = mysql_fetch_array($query_grid)){
 						?>
 							<tr>
-								<td><a href="cadastro_disciplina.php?acao=2&id=<?php echo $result[0];?>&curso=<?php echo $result[4];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php =$k++;?></a></td>
+								<td><a href="cadastro_disciplina.php?acao=2&id=<?php echo $result[0];?>&curso=<?php echo $result[4];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $k++;?></a></td>
 								<td><a href="cadastro_disciplina.php?acao=2&id=<?php echo $result[0];?>&curso=<?php echo $result[4];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $result[1];?></a></td>
 								<td><a href="cadastro_disciplina.php?acao=2&id=<?php echo $result[0];?>&curso=<?php echo $result[4];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $result[2];?></a></td>
 								<td><a href="cadastro_disciplina.php?acao=2&id=<?php echo $result[0];?>&curso=<?php echo $result[4];?>" style="<?php if(isset($_GET['id']) && $_GET['id'] == $result[0]) echo "background-color: orange;";?>"><?php echo $result[3];?></a></td>

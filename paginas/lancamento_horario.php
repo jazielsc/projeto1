@@ -7,7 +7,8 @@
 	require_once($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
 ?>
 
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html dir="ltr">
 	<head>
 		<link type="text/css" rel="stylesheet" href="../css/estilo2.css" />
 		<script language="javascript" type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>		

@@ -18,7 +18,8 @@
 	$recupera = mysql_query("SELECT * FROM instituicao WHERE cod_instituicao = ".$_SESSION['id_instituicao']) or die ("Error na consulta");
 	$result = mysql_fetch_array($recupera);
 ?>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html dir="ltr">
 	<head>
 		<link type="text/css" rel="stylesheet" href="../css/estilo.css" />
 		<script language="javascript" type="text/javascript">

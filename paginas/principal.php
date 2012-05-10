@@ -5,14 +5,15 @@
 	}
 ?>
 
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html dir="ltr">
 	<head>
 		<title>Boletim Flex</title>
 		<link type="text/css" rel="stylesheet" href="../css/estilo.css" />
 	</head>
 	<body>
 		<div class="corpo">
-			<?php  require_once('../partes/menu_login.php');?>	
+			<?php  require_once('../partes/menu_login.php');?>				
 			<br><br><br>
 			<div class="conteudo">
 				<br>

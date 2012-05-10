@@ -1,4 +1,5 @@
 <!-- Lembrar de colocar troca de banner caso esteja logado -->
+
 <div>
 	<img src="/img/banner_login.png" width=766 height=79 />
 	<div id="dados_login">
@@ -17,18 +18,19 @@
 			</tr>
 		</table>
 	</div>
-	<nav id="menu">
-		<div id="menu">
-			<ul>
-				<li><a href="#">SISTEMA</a>
-					<ul>
+	<!--<nav id="menu"> -->
+		<div id="menu" >
+			<!-- Start css3menu.com BODY section -->
+<ul id="css3menu1" class="topmenu">
+				<li id="css3menu1" class="topfirst"><a href="#">SISTEMA</a>
+					<ul id="css3menu1">
 						<li><a href="principal.php">&nbsp;&nbsp;&nbsp;INCIO</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;REQUISITOS</a></li>
 						<li><a href="principal.php">&nbsp;&nbsp;&nbsp;SAIR DO SISTEMA</a></li>
 					</ul>
 				</li>
-				<li><a href="#">CADASTRO</a>
-					<ul>
+				<li class="topmenu"><a href="#">CADASTRO</a>
+					<ul id="css3menu1">
 						<li><a href="cadastro_instituicao.php">&nbsp;&nbsp;&nbsp;INSTITUIO</a></li>
 						<li><a href="cadastro_aluno.php">&nbsp;&nbsp;&nbsp;ALUNO</a></li>
 						<li><a href="cadastro_professor.php">&nbsp;&nbsp;&nbsp;PROFESSOR</a></li>
@@ -37,8 +39,8 @@
 						<li><a href="cadastro_disciplina.php">&nbsp;&nbsp;&nbsp;DISCIPLINA</a></li>
 					</ul>
 				</li>
-				<li><a href="#">LAN&Ccedil;AMENTO</a>
-					<ul>
+				<li class="topmenu"><a href="#">LAN&Ccedil;AMENTO</a>
+					<ul id="css3menu1">
 						<li><a href="lancamento_notas.php">&nbsp;&nbsp;&nbsp;NOTAS/TURMAS</a></li>
 						<li><a href="lancamento_notas2.php">&nbsp;&nbsp;&nbsp;NOTAS/ALUNOS</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;PROFESSOR/DISCIPLINA</a></li>
@@ -47,8 +49,8 @@
 						<li><a href="#">&nbsp;&nbsp;&nbsp;PLANO DE AULA </a></li>
 					</ul>
 				</li>
-				<li><a href="#">CONSULTA</a>
-					<ul>
+				<li class="topmenu"><a href="#">CONSULTA</a>
+					<ul id="css3menu1">
 						<li><a href="consulta_aluno.php">&nbsp;&nbsp;&nbsp;ALUNOS </a></li>
 						<li><a href="consulta_professor.php">&nbsp;&nbsp;&nbsp;PROFESSORES </a></li>
 						<li><a href="consulta_curso.php">&nbsp;&nbsp;&nbsp;CURSO </a></li>
@@ -69,13 +71,14 @@
 						<li><a href="#">&nbsp;&nbsp;&nbsp;RANKING</a></li>
 					</ul>
 				</li>
-				<li><a href="#">MENSAGEM</a>
-					<ul>
+				<li class="toplast"><a href="#">MENSAGEM</a>
+					<ul id="css3menu1">
 						<li><a href="#">&nbsp;&nbsp;&nbsp;ENVIAR MENSAGEM</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;CAIXA POSTAL</a></li>
 					</ul>
 				</li>
-			</ul>
+</ul>
+<!-- End css3menu.com BODY section -->	
 		</div>
-	</nav>
+<!--	</nav>-->
 </div>

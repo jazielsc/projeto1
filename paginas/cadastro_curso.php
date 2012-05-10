@@ -36,7 +36,8 @@
 		$result = mysql_fetch_array($recupera);
 	}
 ?>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html dir="ltr">
 	<head>
 		<link type="text/css" rel="stylesheet" href="../css/estilo.css" />
 		<script language="javascript" type="text/javascript">
@@ -49,7 +50,7 @@
 				}
 			}
 		</script>
-	</head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
 	<body>
 		<div class="corpo">
 			<?php  require_once('../partes/menu_login.php');?>	
@@ -69,10 +70,10 @@
 							<select name="tipo" class="campo" style="width: 250px;">
 								<option <?php if($acao != 1 && $result[2] === "Educao Infantil") echo "selected='SELECTED'";?> value="Educao Infantil">Educao Infantil</option>
 								<option <?php if($acao != 1 && $result[2] === "Ensino Fundamental") echo "selected='SELECTED'";?>value="Ensino Fundamental">Ensino Fundamental</option>
-								<option <?php if($acao != 1 && $result[2] === "Ensino Mdio") echo "selected='SELECTED'";?>value="Ensino Mdio">Ensino Mdio</option>
-								<option <?php if($acao != 1 && $result[2] === "Ensino Tcnico") echo "selected='SELECTED'";?>value="Ensino Tcnico">Ensino Tcnico</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Médio") echo "selected='SELECTED'";?>value="Ensino Mdio">Ensino Mdio</option>
+								<option <?php if($acao != 1 && $result[2] === "Ensino Técnico") echo "selected='SELECTED'";?>value="Ensino Tcnico">Ensino Tcnico</option>
 							</select>
-							<input type="hidden" name="cod_instituicao" value="<?php =$_SESSION['id_instituicao'];?>" />
+							<input type="hidden" name="cod_instituicao" value="<?php echo $_SESSION['id_instituicao'];?>" />
 							<input type="hidden" name="cod_curso" value="<?php if(isset($_GET['id'])) echo $_GET['id'];?>" />
 						</blockquote>
 					</div>

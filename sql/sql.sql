@@ -495,6 +495,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 );
 
 
+
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `usuario_login`, `usuario_pass`, `usuario_atrib`, `referencia`, `cod_aluno_professor`, `cod_instituicao`, `email`) VALUES
 (0, 'Administração Geral Boletim Flex', 'boletimflex', '2c411c05a77137df3d0512c97dc508c8', 1, 0, 0, 6, 'contatoboletimflex@hotmail.com');
 

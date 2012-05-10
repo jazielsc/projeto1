@@ -3,14 +3,14 @@
 	<div id="tela_login">
 		<form action="sistema.php" method="POST">
 			<input type="radio" disabled="disabled" name="referencia" value=0>Mantenedora</input><br>
-			<input type="radio" name="referencia" value=1 checked>Direção/SE</input><br>
-			<input type="radio" disabled="disabled" name="referencia" value=2>Secretária</input><br>
-			<input type="radio" disabled="disabled" name="referencia" value=4>Professores</input><br>
-			<input type="radio" disabled="disabled" name="referencia" value=3>Alunos</input><br>
+			<input type="radio" name="referencia" value=1 checked>Dire&ccedil;&atilde;o/SE</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=2>Secret&aacute;ria</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=3>Professores</input><br>
+			<input type="radio" disabled="disabled" name="referencia" value=4>Alunos</input><br>
 			<div id="campos_login">
 				<table>
 					<tr>
-						<td>Usuário:</td>
+						<td>Usu&aacute;rio:</td>
 						<td><input type="text" name="usuario"></td>
 					</tr>
 					<tr>
@@ -18,7 +18,15 @@
 						<td><input type="password" name="senha"></td>
 					</tr>
 					<tr>
-						<td><a style="color: red; font-size: 9;"><?if(isset($_SESSION['login']) && ($_SESSION['login'] == false)) echo "Login inválido!";?></a></td>
+						<td><a style="color: red; font-size: 9px;"><?php
+						if(isset($_REQUEST['msg'])){					
+							$msg = $_REQUEST['msg'];
+							if($msg==1) 
+								echo "Login inv�lido!";
+							elseif($msg==2) 
+								echo "Senha inv�lida!";	
+						}
+						?></a></td>
 						<td>
 							<br>
 							<center>

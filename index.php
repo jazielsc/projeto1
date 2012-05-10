@@ -14,7 +14,9 @@
 	</head>
 	<body>
 		<div class="corpo">
-			<?php require_once('partes/menu_logout.php');?>	
+			<?php
+			
+			require_once('partes/menu_logout.php');?>	
 			<div class="conteudo">
 				<div style="position: absolute; top: 0px; left: 0px; width: 766px; height: 700px; background: url(./img/corpo_index.png) no-repeat;">
 

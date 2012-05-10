@@ -1,75 +1,59 @@
-<?php 
+<?php
+
 	session_start();
-	ob_start();
+	ob_start();	
 
-	header("Content-Type: text/html; charset=utf-8",true);
-
-	if(!defined("kshjdhjshd1263a118")){ 
-		define("kshjdhjshd1263a118","nada"); 
-	} 
-	
 	require("boletim/scripts/conecta.php");
 	require("boletim/seguranca.php");
 
-	if (isset($_POST['usuario'])){
-		$usuario = seguranca($_POST['usuario']);
-	}
-	// senha criptografada em md5
-	if (isset($_POST['senha'])){
-		$senha =  md5($_POST['senha']);
-	}
-	if (isset($_POST['instituicao'])){
-		$instituicao = seguranca($_POST['instituicao']);
-	}else{
-		$instituicao = 0;
-	}
+	/*if(!isset($_POST['usuario']) || !isset($_POST['senha'])){
+		$_SESSION['login'] = false;
+		header("Location: /index.php");	
+	}*/
 
-	if(isset($_POST['area_login'])){
-		$area_login = seguranca($_POST['area_login']);
-	}
+	$usuario = addslashes($_POST['usuario']);
+	$senha =  md5($_POST['senha']);
+	$referencia = seguranca($_POST['referencia']);
 
-	if(isset($_POST['referencia'])){
-		$referencia = seguranca($_POST['referencia']);
-	}
+	$sql = "SELECT usuario.usuario_pass, usuario.nome, usuario.usuario_atrib, usuario.cod_usuario, usuario.referencia, usuario.cod_aluno_professor, instituicao.nome, usuario.cod_instituicao, mantenedora.cod_mantenedora FROM usuario, instituicao, mantenedora WHERE usuario_atrib = '$referencia' AND usuario_login = '$usuario' AND usuario.cod_instituicao = instituicao.cod_instituicao AND instituicao.cod_mantenedora = mantenedora.cod_mantenedora";
+	echo "$sql";
+	$consulta = mysql_query($sql);
 
-	$query_pasta = mysql_query("SELECT cod_instituicao FROM instituicao WHERE pasta = '$instituicao'") or die ("Erro em consultar instituicao".mysql_error());
-	$resultado = mysql_fetch_row($query_pasta);
-	$query = mysql_query("SELECT cod_usuario, usuario.nome, usuario_login, usuario_pass, usuario_atrib, referencia, cod_aluno_professor, pasta, instituicao.nome FROM usuario, instituicao WHERE usuario_atrib = '$referencia' AND usuario_login = '$usuario' AND usuario.cod_instituicao = '$resultado[0]' AND usuario.cod_instituicao = instituicao.cod_instituicao AND usuario_atrib < 6") or die ("Erro em consultar usuario".mysql_error());
-	
-	if (mysql_num_rows($query)>0){
-	
-		$result = mysql_fetch_row($query);
-		if ($result[3]==$senha){	
+	// Se retornou algum resultado
+	if (mysql_num_rows($consulta) > 0){
+		$resultado = mysql_fetch_row($consulta);
+		if($resultado[0] == $senha){
 			session_regenerate_id();
 			$_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 			$_SESSION['remote_addr'] = $_SERVER['REMOTE_ADDR'];
-
-			/*$_SESSION['area_login'] = $area_login;*/
+			// Verificando a area de login
 			switch($referencia){
-				case 1: $_SESSION['area_login'] = "DIREO"; break;
-				case 2: $_SESSION['area_login'] = "SECRETRIA"; break;
+				case 0: $_SESSION['area_login'] = "MANTENEDORA"; break;
+				case 1: $_SESSION['area_login'] = "DIRECAO"; break;
+				case 2: $_SESSION['area_login'] = "SECRETARIA"; break;
 				case 3: $_SESSION['area_login'] = "ALUNOS"; break;
 				case 4: $_SESSION['area_login'] = "PROFESSORES"; break;
 			}
-			$_SESSION['NomeUsuario']= $result[1];
-			$_SESSION['passagem']= "kjsadjksjdksjdksj12";         
-		    $_SESSION['permissao']= (int) $result[4]; 
-			$_SESSION['id_usuario'] = (int) $result[0];
-			$_SESSION['id_referencia']= (int) $result[5];
-			$_SESSION['id_aluno_professor']= (int) $result[6];
-			$_SESSION['pasta']= $result[7];
-			$_SESSION['instituicao']= $result[8];				
-			$_SESSION['id_instituicao'] = $resultado[0];
-			$_SESSION['login'] = true;
-
-			header("Location: paginas/principal.php");
-		}else{
-			$_SESSION['login'] = false;
-			header("Location: index.php");
+			
+			$_SESSION['passagem']= "kjsadjksjdksjdksj12";
+			$_SESSION['NomeUsuario']= $resultado[1];
+		    $_SESSION['permissao']= (int) $resultado[2]; 
+			$_SESSION['id_usuario'] = (int) $resultado[3];
+			$_SESSION['id_referencia']= (int) $resultado[4];
+			$_SESSION['id_aluno_professor']= (int) $resultado[5];
+			$_SESSION['instituicao']= $resultado[6];				
+			$_SESSION['id_instituicao'] = (int) $resultado[7];
+			$_SESSION['id_mantenedora'] = (int) $resultado[8];
+			$_SESSION['login'] = true;			
+			header("Location: /paginas/principal.php");
 		}
-	}else{
+		else{
+			$_SESSION['login'] = false;
+			header("Location: /index.php?msg=1");
+		}
+	}
+	else{
 		$_SESSION['login'] = false;
-		header("Location: index.php");
-	}               
+		header("Location: /index.php?msg=2");
+	}
 ?>
-

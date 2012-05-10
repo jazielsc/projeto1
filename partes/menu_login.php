@@ -44,7 +44,7 @@
 						<li><a href="lancamento_notas.php">&nbsp;&nbsp;&nbsp;NOTAS/TURMAS</a></li>
 						<li><a href="lancamento_notas2.php">&nbsp;&nbsp;&nbsp;NOTAS/ALUNOS</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;PROFESSOR/DISCIPLINA</a></li>
-						<li><a href="#">&nbsp;&nbsp;&nbsp;HORRIO</a></li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;HORÁRIO</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;DATA DE PROVA</a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;PLANO DE AULA </a></li>
 					</ul>
@@ -56,6 +56,7 @@
 						<li><a href="consulta_curso.php">&nbsp;&nbsp;&nbsp;CURSO </a></li>
 						<li><a href="consulta_turma.php">&nbsp;&nbsp;&nbsp;TURMA </a></li>
 						<li><a href="consulta_disciplina.php">&nbsp;&nbsp;&nbsp;DISCIPLINA </a></li>
+						<li><a href="boletim.php">&nbsp;&nbsp;&nbsp;BOLETIM </a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;TURMA/DISCIPLINA </a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;TURMA/ALUNO </a></li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;TURMA/HORRIO</a></li>

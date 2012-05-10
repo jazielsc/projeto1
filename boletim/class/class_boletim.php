@@ -24,8 +24,8 @@
 			include($_SERVER['DOCUMENT_ROOT']."/boletim/scripts/conecta.php");
 			session_start();
 			$cod_instituicao = (int) $_SESSION['id_instituicao'];
-			$query = mysql_query("SELECT media FROM config WHERE cod_instituicao = '$cod_instituicao'") or die (mysql_error());
-			$resultado = mysql_fetch_array($query);
+			//$query = mysql_query("SELECT media FROM config WHERE cod_instituicao = '$cod_instituicao'") or die (mysql_error());
+			//$resultado = mysql_fetch_array($query);
 			$query_select = mysql_query("SELECT cod_boletim FROM boletim WHERE cod_aluno = '$cod_aluno' AND cod_professor = '$cod_professor' AND cod_curso = '$cod_curso' AND cod_turma = '$cod_turma' AND cod_disciplina = '$cod_disciplina' AND unidade = '$unidade'") or die ("Erro select ". mysql_error());
 			// verificando se a query retornou algum valor
 			$quant = mysql_num_rows($query_select);
@@ -36,7 +36,7 @@
 			else {
 				$query_insert = mysql_query("INSERT INTO boletim VALUE (NULL, '$nota_1', '$nota_2', '$nota_3', '$nota_4', '$nota_5', '$nota_6', '$numero_avaliacoes', '$faltas', '$media', '$cod_curso', '$cod_turma', '$cod_disciplina', '$cod_professor', '$cod_aluno','$unidade')") or die ("Erro insert1 ". mysql_erro());              
                      if($select == 1){
-						$query_grid = mysql_query("SELECT cod_boletim, aluno.nome, nota_01, nota_02, nota_03, nota_04, nota_05, nota_06, media, faltas, unidade FROM aluno, boletim WHERE  aluno.cod_aluno = boletim.cod_aluno AND cod_professor = '$cod_professor' AND boletim.cod_curso = '$cod_curso' AND cod_turma = '$cod_turma' AND cod_disciplina = '$cod_disciplina' ORDER BY aluno.nome",$conn) or die ("Error na consulta1");
+						$query_grid = mysql_query("SELECT cod_boletim, aluno.2_nome_completo, nota_01, nota_02, nota_03, nota_04, nota_05, nota_06, media, faltas, unidade FROM aluno, boletim WHERE  aluno.cod_aluno = boletim.cod_aluno AND cod_professor = '$cod_professor' AND boletim.cod_curso = '$cod_curso' AND cod_turma = '$cod_turma' AND cod_disciplina = '$cod_disciplina' ORDER BY aluno.2_nome_completo",$conn) or die ("Error na consulta1");
 						$i = 0;
 						while ($result = mysql_fetch_array($query_grid)) { // retornando os valores da consulta em array e enviando para o flash
 							echo "&codigo$i=$result[0]";

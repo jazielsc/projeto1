@@ -310,8 +310,7 @@ function cadastraNotas(){
 					carregaGridBoletim($('#carrega_curso').val(),$('#carrega_turma').val(), $('#carrega_disciplina').val(), $('#carrega_professor').val(), 'carrega_boletim');
 					limpaCampos('#Form_boletim');
 				}else{
-					$("div#retorno").html( retorno );
-					$("div#retorno").show();
+					$('div#retorno').html('Notas já cadastradas.');
 				}
 			});
 }

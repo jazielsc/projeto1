@@ -112,7 +112,7 @@
 					</form>
 				</div>
 				<center style="margin-top:5px;">
-						<input type="button" class="botao" value="Cadastrar" onClick="cadastrar_Notas(this)">
+						<input type="button" class="botao" value="Cadastrar" onClick="cadastraNotas(this)">
 						<input type="button" class="botao" value="Cancelar">
 				</center>
 				<div class="lista_selecao" style="width: 730px; height:400px; margin-left:15px;">

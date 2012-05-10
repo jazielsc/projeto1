@@ -1,8 +1,6 @@
 <?php 
 	session_start();
-	if (!(isset($_SESSION['id_instituicao']) != "" and $_SESSION['id_instituicao'] != 0 and isset($_SESSION['NomeUsuario']) and isset($_SESSION['passagem']) and $_SESSION['remote_addr'] = $_SERVER['REMOTE_ADDR'] and  $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'])){
-		header("Location: /index.php");
-	}
+
 	require_once("../boletim/scripts/conecta.php");
 	
 	/* CDIGO PARA ORDENAR A TABELA PELO CABEALHO CLICADO */

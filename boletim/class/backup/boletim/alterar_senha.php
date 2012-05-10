@@ -27,7 +27,7 @@
         
        
 	  echo "<script language='javascript'>alert('Senha alterada com sucesso!');</script>";
-	  Header("Location: /index.php");
+	  header("Location: ../index.php");
 	   
 	   
         

@@ -31,7 +31,7 @@
 				</li>
 				<li class="topmenu"><a href="#">CADASTRO</a>
 					<ul id="css3menu1">
-						<li><a href="cadastro_instituicao.php">&nbsp;&nbsp;&nbsp;INSTITUIO</a></li>
+						<li><a href="cadastro_instituicao.php">&nbsp;&nbsp;&nbsp;INSTITUI&Ccedil;&Atilde;O</a></li>
 						<li><a href="cadastro_aluno.php">&nbsp;&nbsp;&nbsp;ALUNO</a></li>
 						<li><a href="cadastro_professor.php">&nbsp;&nbsp;&nbsp;PROFESSOR</a></li>
 						<li><a href="cadastro_curso.php">&nbsp;&nbsp;&nbsp;CURSO</a></li>

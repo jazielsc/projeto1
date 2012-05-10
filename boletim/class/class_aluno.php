@@ -42,7 +42,7 @@ class Class_aluno{
 			
 			$resultado = mysql_fetch_array($query_consulta);
 			$senha =  md5($_13_identidade);
-			$query_insert = mysql_query("INSERT INTO usuario VALUES (NULL, '$_2_nome_completo','$_13_identidade','$senha',3,1,'$resultado[0]','$cod_instituicao','$email', $_SESSION['id_mantenedora'])") or die ("Erro insert2 ". mysql_error());
+			$query_insert = mysql_query("INSERT INTO usuario VALUES (NULL, '$_2_nome_completo','$_13_identidade','$senha',3,1,'$resultado[0]','$cod_instituicao','$email', ".$_SESSION['id_mantenedora'].")") or die ("Erro insert2 ". mysql_error());
 			$query_insert2 = mysql_query("INSERT INTO aluno_curso VALUES ('$resultado[0]','$cod_curso')") or die ("Erro insert3 ". mysql_errno());
 		/*END*/
 	}
